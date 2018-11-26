@@ -33,19 +33,24 @@
         $productName = $_GET['productName'];
         $productDescription = $_GET['description'];
         $productImage = $_GET['productImage'];
-        $productPrice = $_GET['price'];
+        $brandID = $_GET['brandID'];
         $catId = $_GET['catId'];
+        $productPrice = $_GET['price'];
+        
         
         $sql = "INSERT INTO f_product
-        (productName, productDescription, productImage, price, catId)
-        VALUES(:productName, :productDescription, :productImage, :price, :catId)";
+        (productName, productDescription, productImage, brandID, categoryID, price, likesID)
+        VALUES(:productName, :productDescription, :productImage, :brandID, :catId, :price, :likesID)";
         
         $np = array();
         $np[':productName'] = $productName;
         $np[':productDescription'] = $productDescription;
         $np[':productImage'] = $productImage;
-        $np[':price'] = $productPrice;
+        $np[':brandID'] = $brandID;
         $np[':catId'] = $catId;
+        $np[':price'] = $productPrice;
+        $np[':likesID'] = 1;
+        
         
         $stmt = $conn->prepare($sql);
         $stmt->execute($np);
@@ -84,7 +89,7 @@
                     <?php getCategories(); ?>
                 </select>
                 <br>
-                <strong>Brand</strong> <select name="brandId">
+                <strong>Brand</strong> <select name="brandID">
                     <option value="">Select One</option>
                     <?php getBrands(); ?>
                 </select>
