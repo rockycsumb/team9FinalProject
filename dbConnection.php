@@ -1,6 +1,6 @@
 <?php
 
-function getDatabaseConnection($dbname = "finalproject"){
+function getDatabaseConnection($dbname = "ottermart"){
     //C9 db info
     
     $host = 'localhost';
@@ -23,7 +23,6 @@ function getDatabaseConnection($dbname = "finalproject"){
     $dbConn -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
     return $dbConn;
-
 }
 
 ?>

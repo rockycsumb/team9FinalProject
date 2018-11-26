@@ -1,0 +1,139 @@
+body {
+    background-color: #002a4e;
+    color: white;
+    font-family: 'Mukta', sans-serif;
+}
+
+h1 {
+    text-align: center;
+    font-size: 3em;
+}
+
+h3 {
+    margin-left: 5%;
+}
+
+#search {
+    width: 90%;
+    margin: 10px auto;
+    display: block;
+    background-color: white;
+    border-radius: 10px;
+    color: #002a4e;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+#searchForm {
+    width: 400px;
+    text-align: left;
+    margin: 0px auto;
+}
+
+#addProduct {
+    padding-bottom: 10px;
+    background-color: white;
+    border-radius: 10px;
+    color: #002a4e;
+    padding-top: 10px;
+    box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
+    border: 1px solid #305A72;
+    text-align:center;
+}
+
+#adminLogin {
+    width: 90%;
+    margin: 0px auto;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    background-color: white;
+    border-radius: 10px;
+    color: #002a4e;
+    padding-top: 10px;
+    box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
+    border: 1px solid #305A72;
+    text-align:center;
+}
+
+.adminButtons{
+    display:inline;
+}
+
+.card {
+    width: 90%;
+    padding-left: 10px;
+    display: block;
+    background-color: white;
+    border-radius: 10px;
+    color: #002a4e;
+    padding-top: 10px;
+    margin: 10px auto;
+    text-align: left;
+    box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
+    border: 1px solid #305A72;
+}
+
+input[type="submit"] {
+    box-shadow: inset 0px 1px 0px 0px #305A72;
+	background-color: #002a4e;
+	border: 1px solid #305A72;
+	display: inline-block;
+	cursor: pointer;
+	color: #FFFFFF;
+	padding: 8px 18px;
+	text-decoration: none;
+	font: 12px Arial, Helvetica, sans-serif;
+	margin: 0 auto;
+}
+
+.btn {
+    box-shadow: inset 0px 1px 0px 0px #305A72;
+	background-color: #002a4e;
+	border: 1px solid #305A72;
+	display: inline-block;
+	cursor: pointer;
+	color: #FFFFFF;
+	padding: 8px 18px;
+	text-decoration: none;
+	font: 12px Arial, Helvetica, sans-serif;
+	
+}
+
+#footer {
+    text-align: center;
+}
+
+#history {
+    width: 90%;
+    margin: 0px auto;
+    display: block;
+    background-color: white;
+    border-radius: 10px;
+    color: #002a4e;
+    padding-top: 10px;
+    text-align: center;
+}
+
+tr{
+   
+    padding-left: 10px;
+    background-color: white;
+    border-radius: 10px;
+    color: #002a4e;
+    padding-top: 10px;
+    box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
+    border: 1px solid #305A72;
+}
+
+#addSuccess{
+    display: block;
+    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    color: #002a4e;
+    padding: 10px 0;
+}
+
+table {
+    margin : 0px auto;
+}
