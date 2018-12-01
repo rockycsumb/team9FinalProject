@@ -18,6 +18,7 @@
         $newItem['id'] = $_POST['itemId'];
         $newItem['price'] = $_POST['itemPrice'];
         $newItem['image'] = $_POST['itemImage'];
+        $newItem['description'] = $_POST['itemDescription']; // Added by Rocky
         
       foreach($_SESSION['cart'] as &$item){
           if($newItem['id'] == $item['id']){
