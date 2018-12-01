@@ -99,6 +99,7 @@
                     $itemPrice = $item['price'];
                     $itemImage = $item['productImage'];
                     $itemId = $item['productID'];
+                    $itemDescription = $item['productDescription']; // Added by Rocky
                     
                     echo "<tr>";
                     
@@ -110,7 +111,9 @@
                     echo "<input type='hidden' name='itemName' value='$itemName'>";
                     echo "<input type='hidden' name='itemId' value='$itemId'>";
                     echo "<input type='hidden' name='itemPrice' value='$itemPrice'>";
+                    echo "<input type='hidden' name='itemDescription' value='$itemDescription'>"; // Added by Rocky
                     echo "<input type='hidden' name='itemImage' value='$itemImage'>";
+                    
                         
                     if($_POST['itemId'] == $itemId)
                         echo "<td><button class='btn btn-success'>Added</button></td>";
