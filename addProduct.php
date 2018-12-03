@@ -57,58 +57,82 @@
         
         $submit = true;
     }
+    
+    include 'inc/header.php';
 ?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>CST336: Team 9 Final Project need store name Product Search</title>
-        <link href="css/styles.css" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Mukta" rel="stylesheet">
+
     </head>
     <body>
-        <h1> Team 9 Final Project need store name Product Search </h1>
-        <div id="adminLogin">
-            <a class="btn" href="admin.php">Return</a>
-            <form class="adminButtons" action="logout.php">
-                <input type="submit" id='beginning' value="Logout" />
-            </form>
-        </div>
+        <div class="container">
+        <!-- Bootstrap Navagation Bar -->
+              <nav class='navbar navbar-default - navbar-fixed-top'>
+                <div class='container-fluid'>
+                    <div class='navbar-header'>
+                        <a class='navbar-brand' href='#'>Shopping Land</a>
+                    </div>
+                    <div id="addProduct">
+                        <a class="btn btn-primary" href="admin.php">Return</a>
+                        <form class="adminButtons" action="logout.php">
+                            <input class="btn btn-primary" type="submit" id='beginning' value="Logout" />
+                        </form>
+                    </div>
+                            
+                        </ul>
+                </div>
+            </nav>
         <?php
             if($submit == true){
-                echo '<h2 id="addSuccess"> Product Add Succesful </h2>';
+                echo '<div class="alert alert-success" role="alert"> Product Add Succesful </div>';
             }
               
         ?>
-        <div id="search">
-            <form id="searchForm">
-                <strong>Product name</strong> <input type="text" name="productName"> <br>
-                <strong>Description</strong> <textarea name="description"  cols="50" rows="4" ></textarea> <br>
-                <strong>Price</strong> <input type="text" name="price"><br>
-                <strong>Category</strong> <select name="catId">
-                    <option value="">Select One</option>
-                    <?php getCategories(); ?>
-                </select>
-                <br>
-                <strong>Brand</strong> <select name="brandID">
-                    <option value="">Select One</option>
-                    <?php getBrands(); ?>
-                </select>
-                <br>
-                <strong>Set Image Url</strong> <input type="text" name="productImage"><br>
-                <input type="submit" name="submitProduct" value="Add Product">
-                <br><br>
+        <form id="prodSearch">
+                <div class="form-row">
+                    <div class="col-md-3 mb-3">
+                        <label><strong>Product Name</strong></label>    
+                        <input type="text" class="form-control" name="productName" placeholder="Enter product name" />
+                    </div>  
+                    <div class="col-md-3 mb-3">
+                        <label><strong>Description</strong></label>    
+                        <textarea class="form-control" name="description" cols="50" rows="4" placeholder="Enter product description"></textarea>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label><strong>Price</strong></label>    
+                        <input type="text" class="form-control" name="price" placeholder="Enter price"/>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-3 mb-3">
+                        <label><strong>Category</strong></label>    
+                        <select name="catId" class="form-control">
+                            <option>Select One</option>
+                            <?php 
+                                getCategories($product['categoryID']); 
+                            ?>
+                        </select>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label><strong>Brand</strong></label>    
+                        <select name="brandID" class="form-control">
+                            <option>Select One</option>
+                            <?php 
+                                getBrands($product['brandID']); 
+                            ?>
+                        </select>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label><strong>Set Image Url</strong></label>    
+                        <input type="text" class="form-control" name="productImage" placeholder="Enter image url" />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-3 mb-3">
+                        <input type="submit" class="btn btn-primary" name="submitProduct" value="Add Product" />
+                    </div>
+                </div>
+                
+                
             </form>
+        
         </div>
-        <div id="footer">
-            <hr>
-            <br /><br />
-            <p>
-                CST 336 Internet Programming 2018 &copy; Team 9 <br />
-                This website is for academic purposes only.
-                <br /><br />
-                <img src="img/logo.png" alt="CSUMB logo">
-            </p>
-        </div>
-       
-    </body>
-</html>
+       <?php include 'inc/footer.php'; ?>

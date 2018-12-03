@@ -1,22 +1,43 @@
 <?php
     session_start();
+    include 'inc/header.php';
 ?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>CST336: Team 9 Final Project Need Store Name</title>
-        <link href="css/styles.css" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Mukta" rel="stylesheet">
+
     </head>
     <body>
-        <h1> Store Name: Product Search </h1>
-        <h3> Admin login</h3>
-        <div id="search">
+        <div class="container">
+        <!-- Bootstrap Navagation Bar -->
+              <nav class='navbar navbar-default - navbar-fixed-top'>
+                <div class='container-fluid'>
+                    <div class='navbar-header'>
+                        <a class='navbar-brand' href='#'>Shopping Land</a>
+                    </div>
+                    <div id="addProduct">
+                        <a class="btn btn-primary" href="index.php">Home</a>
+                    </div>
+                            
+                        </ul>
+                </div>
+            </nav>
+        <div id="prodSearch">
         <form id="searchForm" method="POST" action="inc/loginProcess.php">
-            Username: <input type="text" name="username" /> <br />
-            Password: <input type="password" name="password" /> <br />
+            <div class="form-row">
+                <div class="col-md-5 mb-3">
+                    <label><strong>Username</strong></label>    
+                    <input type="text" class="form-control" name="username" />
+                </div>  
+                <div class="col-md-5 mb-3">
+                    <label><strong>Password</strong></label>    
+                    <input type="password" class="form-control" name="password" />
+                </div> 
+            </div>
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <input class="btn btn-primary" type="submit" name="submitForm" value="Login" />
+                </div>
+            </div>
             
-            <input type="submit" name="submitForm" value="Login!" />
+            
             <br /> <br />
             <?php
                 if($_SESSION['incorrect']){
@@ -26,15 +47,4 @@
             ?>
         </form>
         </div>
-        <div id="footer">
-            <hr>
-            <br /><br />
-            <p>
-                CST 336 Internet Programming 2018 &copy; Team 9 <br />
-                This website is for academic purposes only.
-                <br /><br />
-                <img src="img/logo.png" alt="CSUMB logo">
-            </p>
-        </div>
-    </body>
-</html>
+        <?php include 'inc/footer.php'; ?>

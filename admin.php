@@ -19,14 +19,10 @@
         return $records;
     }
     
+    include 'inc/header.php';
 ?>
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>CST336: Team 9 Final Project need store name Product Search</title>
-        <link href="css/styles.css" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Mukta" rel="stylesheet">
+
         <script>
             function confirmDelete(){
                 return confirm("Are you sure you want to delete the product?");
@@ -34,19 +30,31 @@
         </script>
     </head>
     <body>
-        <h1> Team 9 final project need store name Product Search </h1>
-        <div id="addProduct">
-            <form class="adminButtons" action="addProduct.php">
-                <input type="submit" id='beginning' name='adproduct' value="Add Product" />
-            </form>
-            <form class="adminButtons" action="logout.php">
-                <input type="submit" id='beginning' value="Logout" />
-            </form>
-        </div>
-        <br /> <br />
+        <div class="container">
+        <!-- Bootstrap Navagation Bar -->
+              <nav class='navbar navbar-default - navbar-fixed-top'>
+                <div class='container-fluid'>
+                    <div class='navbar-header'>
+                        <a class='navbar-brand' href='#'>Shopping Land</a>
+                    </div>
+                    <div id="addProduct">
+                        <form class="adminButtons" action="addProduct.php">
+                            <input class="btn btn-primary" type="submit" id='beginning' name='adproduct' value="Add Product" />
+                        </form>
+                        <form class="adminButtons" action="logout.php">
+                            <input class="btn btn-primary" type="submit" id='beginning' value="Logout" />
+                        </form>
+                    </div>
+                            
+                        </ul>
+                </div>
+            </nav>
+        
+        
+        <div class="container-fluid" id="prodSearch">
         <?php 
             $records = displayAllProducts();
-            echo "<table clas='table'>";
+            echo "<table class='table table-striped'>";
             echo "<thead>
                     <tr>
                         <th scope='col'>ID</th>
@@ -63,8 +71,8 @@
                 echo "<td>" . $record['productID'] . "</td>";
                 echo "<td>" . $record['productName'] . "</td>";
                 echo "<td>" . $record['productDescription'] . "</td>";
-                echo "<td>" . $record['price'] . "</td>";
-                echo "<td><a class='btn' href='updateProduct.php?productId=".$record['productID']."'>Update</a></td>";
+                echo "<td>$" . number_format($record['price'], 2, '.', ',') . "</td>";
+                echo "<td><a class='btn btn-primary' href='updateProduct.php?productId=".$record['productID']."'>Update</a></td>";
                 
                 echo "<form action='deleteProduct.php' onsubmit='return confirmDelete()'>";
                 echo "<input type='hidden' name='productId' value= " . $record['productID'] . " />";
@@ -77,16 +85,8 @@
             
             echo "</tbody>";
             echo "</table>";
+        
         ?>
-        <div id="footer">
-            <hr>
-            <br /><br />
-            <p>
-                CST 336 Internet Programming 2018 &copy; Team 9 <br />
-                This website is for academic purposes only.
-                <br /><br />
-                <img src="img/logo.png" alt="CSUMB logo">
-            </p>
         </div>
-    </body>
-</html>
+        </div>
+        <?php include 'inc/footer.php'; ?>
