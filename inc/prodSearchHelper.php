@@ -97,6 +97,7 @@
                 echo "<th scope='col'>Product Name</th>";
                 echo "<th scope='col'>Price</th>";
                 echo "<th scope='col'></th>";
+                echo "<th scope='col'></th>";
                 echo "</tr>";
                 echo "</thead>";
                 
@@ -130,7 +131,7 @@
                     else
                         echo "<td><button class='btn btn-warning'>Add to Cart</button></td>";
                     echo "</form>";
-                    
+                    echo "<td><a class='btn btn-primary' href='productDetail.php?productID=".$itemId."' role='button'>Details</a></td>";
                     echo "</tr>";
                     echo "</tbody>";    
                     
