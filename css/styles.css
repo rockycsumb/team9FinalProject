@@ -231,3 +231,9 @@ footer{
     text-align: center;
 }    
 
+.carousel-control-prev, .carousel-control-next{
+    color: #007bff;
+    text-decoration: none;
+    background-color: #2196F3;
+    -webkit-text-decoration-skip: objects;
+}
