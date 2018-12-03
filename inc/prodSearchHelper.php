@@ -42,8 +42,6 @@
         
         if (isset($_GET['searchForm'])) { 
             
-            echo "<h3>Products Found </h3>"; 
-            
             $namedParameters = array();
             
             $sql = "SELECT * FROM f_product WHERE 1";
@@ -91,7 +89,17 @@
              $stmt->execute($namedParameters);
              $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-                echo "<table class='table'>";
+                echo "<div id='searchResults'>";
+                echo "<table class='table table-hover'>";
+                echo "<thead class='thead-light'>";
+                echo "<tr>";
+                echo "<th scope='col'>Product Image</th>";
+                echo "<th scope='col'>Product Name</th>";
+                echo "<th scope='col'>Price</th>";
+                echo "<th scope='col'></th>";
+                echo "</tr>";
+                echo "</thead>";
+                
                 foreach($records as $item)
                 {
                  
@@ -101,11 +109,14 @@
                     $itemId = $item['productID'];
                     $itemDescription = $item['productDescription']; // Added by Rocky
                     
-                    echo "<tr>";
+                    //Format price as currency
+                    $itemPrice = number_format(($itemPrice),0,'.',',');
                     
-                    echo "<td><img width='200px' height='200px' src='$itemImage'></td>";
-                    echo "<td><h4>$itemName</h4></td>";
-                    echo "<td><h4>$itemPrice</h4></td>";
+                    echo "<tbody>";
+                    echo "<tr id='mpRow'>";
+                    echo "<th scope='row'><div id='mpRowImgDiv'><img id='mpRowImg' src='$itemImage'></div></th>";
+                    echo "<td>$itemName</td>";
+                    echo "<td>$".$itemPrice."</td>";
                     echo "<form method='post'>";
                     
                     echo "<input type='hidden' name='itemName' value='$itemName'>";
@@ -114,22 +125,21 @@
                     echo "<input type='hidden' name='itemDescription' value='$itemDescription'>"; // Added by Rocky
                     echo "<input type='hidden' name='itemImage' value='$itemImage'>";
                     
-                        
                     if($_POST['itemId'] == $itemId)
                         echo "<td><button class='btn btn-success'>Added</button></td>";
                     else
-                        echo "<td><button class='btn btn-warning'>Add</button></td>";
+                        echo "<td><button class='btn btn-warning'>Add to Cart</button></td>";
                     echo "</form>";
                     
-                    echo "</tr>";        
-                 }
+                    echo "</tr>";
+                    echo "</tbody>";    
+                    
                 }
+                
                 echo "</table>";
-    
-            
-        
-        
-    }
+                echo "</div>";
+            }
+        }
         
         //Working
         function getCarosel()

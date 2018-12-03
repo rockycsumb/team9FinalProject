@@ -39,10 +39,11 @@
 <html>
     
     <head>
-        <title>Search Page</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-       <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-        <link href="css/styles.css" rel="stylesheet" type="text/css" />
+      <title>Search Page</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+      <link href="css/styles.css" rel="stylesheet" type="text/css" />
+      <link href="https://fonts.googleapis.com/css?family=Fira+Sans|Nunito|Roboto" rel="stylesheet">
     </head>
     <body>
         <div class="container">
@@ -62,72 +63,59 @@
                         </ul>
                 </div>
             </nav>
-            <br /> <br /> <br />
-        <div class="row" id="productSearch">
-        <div class="col">
-             <h1> <span class="fa fa-search" ></span></h1>
-        <form>
-            <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col">Product Name</th>
-                  <th scope="col">Category</th>
-                  <th scope="col">Brand</th>
-                  <th scope="col">Price</th>
-                  <th scope="col">OrderBy</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                    <td>
-                          <input type="text" name="product" />
-                    </td>
-                    <td>
-                        <select name="category">
-                            <option value=""> Select One </option>
-                          <?= displayCategories()?>
-                        </select>
-                    </td>
-                    <td>
-                         
-                        <select name="brand">
-                            <option value=""> Select One </option>
-                          <?= displayBrands()?>
-                        </select>
-                    </td>
-                    <td>
-                        From : <input type="text" name="priceFrom" size="7" />
-                        To   :<input type="text" name="priceTo" size="7" />
-                    </td>
-                    <td>
             
-                        Price : <input type="radio" name="orderBy" value="price"/> 
-                        Name  : <input type="radio" name="orderBy" value="name" checked/> 
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="5" align="center">
-                        
-                        <input type="submit"  name="searchForm" />
-                       
-                    </td>
-                </tr>
-            </tbody>
-            </table>
-        </form>
-        </div>
-        <br/>
-        <hr>  
-        <hr>
-        </div>
-        <div class="row">
-             <div class="col">
-                  <?= displaySearchResults() ?> 
+      <form id="prodSearch">
+        <div class="form-row">
+    
+          <div class="col-md-3 mb-3">
+            <label><strong>Product ID</strong></label>    
+            <input type="text" class="form-control" name="product" placeholder="Enter product name" value="<?php if(isset($_GET['product'])){ echo $_GET['product'];} ?>"/>
+          </div>  
+          
+          <div class="col-md-2 mb-3">             
+            <label><strong>Category</strong></label>
+            <select name="category" class="form-control">
+                <option value=""> Select One </option>
+              <?= displayCategories()?>
+            </select>
+          </div>
+      
+          <div class="col-md-2 mb-3">
+            <label><strong>Brand</strong></label>
+            <select name="brand" class="form-control">
+              <option value=""> Select One </option>
+              <?= displayBrands()?>
+            </select>
+          </div>
+          
+          <div class="col-md-1 mb-3">
+            <label><strong>From:</strong></label>
+            <input type="text" class="form-control" name="priceFrom" value="<?php if(isset($_GET['priceFrom'])){ echo $_GET['priceFrom'];} ?>"/>
+          </div>
+          
+          <div class="col-md-1 mb-3">
+            <label for=""><strong>To:</strong></label>
+            <input type="text" class="form-control" name="priceTo" value="<?php if(isset($_GET['priceTo'])){ echo $_GET['priceTo'];} ?>"/>
+          </div>              
+          
+          <div class="col-md-2 mb-3">
+            <label><strong>Sort By</strong></label><br>
+            <div class="form-check-inline">
+              <input type="radio" class="form-check-input" name="orderBy" value="name" <?php if(isset($_GET['orderBy']) && $_GET['orderBy'] == 'name') echo 'checked="checked"'; ?>/>Name
             </div>
-         </div>
-        <hr>  
-        <div id="electricDeals" class="row" >
-            <div class="col">
+            <div class="form-check-inline">
+              <input type="radio" class="form-check-input" name="orderBy" value="price" <?php if(isset($_GET['orderBy']) && $_GET['orderBy'] == 'price') echo 'checked="checked"'; ?>/>Price 
+            </div>
+          </div>
+        </div>
+        
+        <button type="submit" class="btn btn-primary" name="searchForm">Search</button>  
+      </form>
+      
+      <?php displaySearchResults()?>
+          
+      <div id="electricDeals">
+            <!--<div class="col">-->
                 <h1>Electric <span class="fa fa-bolt" ></span> Deals</h1>
                 <?php if (count($dealURL) > 0) { ?>
                 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -159,10 +147,10 @@
                               /*  echo ''.$dealURL[$randomIndex]['productName'] .'';*/
                                 echo '<img id="caroImg" align="middle" src="'.$dealURL[$randomIndex]['productImage'].'">';
                                 
-                                echo  '<div class="carousel-caption d-none d-md-block">
-                                    <h5>'.$dealURL[$randomIndex]['productName'].'<br/>MSRP$:'
-                                    .$dealURL[$randomIndex]['price'].'</h5> about:<p>'
-                                    .$dealURL[$randomIndex]['productDescription'].'</p>  </div>';
+                                echo  '<div class="carousel-text">
+                                    <h5>'.$dealURL[$randomIndex]['productName'].' MSRP$:'
+                                    .$dealURL[$randomIndex]['price'].'</h5><p>'
+                                    .$dealURL[$randomIndex]['productDescription'].'</p><br></div>';
                                     
                                 echo '</div>';
                                 unset($dealURL[$randomIndex]);
@@ -181,13 +169,19 @@
                     <?php } ?>
                     
                    
-                </div>
-            </div>
+            <!--</div>-->
+          </div>
         </div>
-        </div>
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         
+      <footer>
+        Team 9 | Final Project<br>
+        CST336-40 Internet Programming 2018&copy; <br/>
+        <strong>Disclaimer:</strong> The information in this webpage is ficticious.  It is used for academic purposes only.
+        <figure><a href="https://csumb.edu/"><img src="img/csumb_logo.png" alt="CSUMB logo"/></a></figure>
+      </footer>  
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+      </div>
     </body>
 </html>

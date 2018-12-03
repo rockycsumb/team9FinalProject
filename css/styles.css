@@ -1,12 +1,12 @@
-   html{
-        width:100%;
-       height:100%;
+html{
+    width:100%;
+    height:100%;
    }
 
 body {
-    background-color: #002a4e;
-    color: white;
-    font-family: 'Mukta', sans-serif;
+    background-color: #f9f9f9;
+    /*font-family: 'Mukta', sans-serif;*/
+    font-family: 'Calibri',sans-serif;
 }
 
 h1 {
@@ -78,35 +78,35 @@ h3 {
     border: 1px solid #305A72;
 }
 
-input[type="submit"] {
-    box-shadow: inset 0px 1px 0px 0px #305A72;
-	background-color: #002a4e;
-	border: 1px solid #305A72;
-	display: inline-block;
-	cursor: pointer;
-	color: #FFFFFF;
-	padding: 8px 18px;
-	text-decoration: none;
-	font: 12px Arial, Helvetica, sans-serif;
-	margin: 0 auto;
-}
+/*input[type="submit"] {*/
+/*    box-shadow: inset 0px 1px 0px 0px #305A72;*/
+/*	background-color: #002a4e;*/
+/*	border: 1px solid #305A72;*/
+/*	display: inline-block;*/
+/*	cursor: pointer;*/
+/*	color: #FFFFFF;*/
+/*	padding: 8px 18px;*/
+/*	text-decoration: none;*/
+/*	font: 12px Arial, Helvetica, sans-serif;*/
+/*	margin: 0 auto;*/
+/*}*/
 
-.btn {
-    box-shadow: inset 0px 1px 0px 0px #305A72;
-	background-color: #002a4e;
-	border: 1px solid #305A72;
-	display: inline-block;
-	cursor: pointer;
-	color: #FFFFFF;
-	padding: 8px 18px;
-	text-decoration: none;
-	font: 12px Arial, Helvetica, sans-serif;
+/*.btn {*/
+/*    box-shadow: inset 0px 1px 0px 0px #305A72;*/
+/*	background-color: #002a4e;*/
+/*	border: 1px solid #305A72;*/
+/*	display: inline-block;*/
+/*	cursor: pointer;*/
+/*	color: #FFFFFF;*/
+/*	padding: 8px 18px;*/
+/*	text-decoration: none;*/
+/*	font: 12px Arial, Helvetica, sans-serif;*/
 	
-}
+/*}*/
 
-#footer {
-    text-align: center;
-}
+/*#footer {*/
+/*    text-align: center;*/
+/*}*/
 
 
 #history {
@@ -120,16 +120,6 @@ input[type="submit"] {
     text-align: center;
 }
 
-tr{
-   
-    padding-left: 10px;
-    background-color: white;
-    border-radius: 10px;
-    color: #002a4e;
-    padding-top: 10px;
-    box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
-    border: 1px solid #305A72;
-}
 
 #addSuccess{
     display: block;
@@ -139,27 +129,6 @@ tr{
     color: #002a4e;
     padding: 10px 0;
 }
-
-table {
-    margin : 0px auto;
-}
-
-#carousel-example-generic img{
-  
-         width: 200px;
-         height: 200px;
-         margin: 0 20%;
-    }
-    
-#carousel-example-generic{
-         margin: 0 auto;   
-          width: 100%;
-    }
-    
-#electricDeals{
-    outline: 2px dotted white;
-}
-
 
 /*********************************/
 /*    CSS for the shopping cart  */
@@ -206,3 +175,59 @@ table {
     padding-right: 10px;
     
 }
+
+/*********************************/
+/*    CSS for Main Page  */
+/*********************************/
+
+#prodSearch, #searchResults, #electricDeals{
+    background-color: #fff;
+    padding: 30px 20px 30px 20px;
+    margin-bottom: 5px;
+    border: 1px #e7e7e7 solid;
+}
+
+#electricDeals{
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+    color: #002A4E;
+}
+
+#mpRow{
+    height: 90px;
+    margin: 30px;
+}
+
+#mpRowImgDiv{
+    width: 150px;
+    height: 90px;
+    border: 1px #d2d2d2 solid;
+}
+
+#mpRowImg{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    overflow: hidden;
+}
+
+#carousel-example-generic img{
+     width: 200px;
+     height: 200px;
+     margin: 0 20%;
+     object-fit: contain;
+     overflow: hidden;
+}
+    
+#carousel-example-generic{
+     margin: 0 auto;   
+     width: 100%;
+}
+
+footer{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 0.8em;
+    text-align: center;
+}    
+
