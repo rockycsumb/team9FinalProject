@@ -64,7 +64,7 @@ function displayCart()
             echo "<td><button class='btn btn-danger'>Remove</button></td>";
             echo "</form>";
             
-            $itemTotal = $itemTotal + ($itemPrice * $itemQuant);
+            $itemTotal += floatval($itemPrice) * floatval($itemQuant);
             
             
         }

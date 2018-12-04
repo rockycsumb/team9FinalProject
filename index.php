@@ -1,5 +1,5 @@
 <?php
-    include './inc/prodSearchHelper.php';
+    include 'inc/prodSearchHelper.php';
     $dealURL = array();
     $dealURL = getCarosel();
 
@@ -39,7 +39,7 @@
     <div class="sticky-top">
       <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
         <div class="container">
-          <a class="navbar-brand" href="index.php">E-Wheels</a>
+          <a class="navbar-brand" href="index.php">E-Wheels </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -50,6 +50,9 @@
               <a class="nav-item nav-link" href="admin.php">Admin Page</a>
             </div>
           </div>
+          <a class="btn btn-outline-light" href="scart.php">
+            <span class='glyphicon glyphicon-shopping-cart' aria-hidden='true'>
+            </span>Cart: <?php displayCount();?> </a>
         </div>
       </nav>
     </div>

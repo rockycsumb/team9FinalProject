@@ -86,45 +86,51 @@
 
     </head>
     <body>
+        
+        <div class="sticky-top">
+      <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
         <div class="container">
-        <!-- Bootstrap Navagation Bar -->
-              <nav class='navbar navbar-default - navbar-fixed-top'>
-                <div class='container-fluid'>
-                    <div class='navbar-header'>
-                        <a class='navbar-brand' href='#'>Shopping Land</a>
-                    </div>
-                    <div id="addProduct">
-                        <a class="btn btn-primary" href="admin.php">Return</a>
-                        <form class="adminButtons" action="logout.php">
-                            <input class="btn btn-primary" type="submit" id='beginning' value="Logout" />
-                        </form>
-                    </div>
-                            
-                        </ul>
-                </div>
-            </nav>
+          <a class="navbar-brand" href="index.php">E-Wheels</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-item nav-link" href="index.php">Home</a>
+              <a class="nav-item nav-link" href="#">Features</a>
+              <a class="nav-item nav-link" href="#">Admin Page</a>
+            </div>
+          </div>
+          <a class="btn btn-outline-light" href="admin.php">Return</a>&nbsp;
+          <a class="btn btn-outline-light" href="logout.php">Logout</a>            
+        </div>
+      </nav>
+    </div>
+    <div class="container-fluid h-100" id="prodSearch">
+         <div class="row justify-content-center align-items-center h-100">
+                <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3">
             <?php
                 echo $updateAlert;
             ?>
         
-            <form id="prodSearch">
+            <form>
+                <h4 id="pageTitle">Update Product Information</h4>
                 <input type="hidden" name="productId" value="<?=$product['productID']?>" />
-                <div class="form-row">
-                    <div class="col-md-3 mb-3">
+                
+                    <div class="form-group">
                         <label><strong>Product Name</strong></label>    
                         <input type="text" class="form-control" name="productName" placeholder="Enter product name" value="<?=$product['productName']?>"/>
                     </div>  
-                    <div class="col-md-3 mb-3">
+                    <div class="form-group">
                         <label><strong>Description</strong></label>    
                         <textarea class="form-control" name="description" cols="50" rows="4"><?=$product['productDescription']?></textarea>
                     </div>
-                    <div class="col-md-3 mb-3">
+                    <div class="form-group">
                         <label><strong>Price</strong></label>    
                         <input type="text" class="form-control" name="price" value="<?=$product['price']?>"/>
                     </div>
-                </div>
-                <div class="form-row">
-                    <div class="col-md-3 mb-3">
+                
+                    <div class="form-group">
                         <label><strong>Category</strong></label>    
                         <select name="catId" class="form-control">
                             <option>Select One</option>
@@ -133,7 +139,7 @@
                             ?>
                         </select>
                     </div>
-                    <div class="col-md-3 mb-3">
+                    <div class="form-group">
                         <label><strong>Brand</strong></label>    
                         <select name="brandID" class="form-control">
                             <option>Select One</option>
@@ -142,19 +148,18 @@
                             ?>
                         </select>
                     </div>
-                    <div class="col-md-3 mb-3">
+                    <div class="form-group">
                         <label><strong>Set Image Url</strong></label>    
                         <input type="text" class="form-control" name="productImage" value="<?=$product['productImage']?>"/>
                     </div>
-                </div>
-                <div class="form-row">
-                    <div class="col-md-3 mb-3">
+                
+                    <div class="form-group">
                         <input type="submit" class="btn btn-primary" name="updateProduct" value="Update Product" />
                     </div>
-                </div>
+               
                 
                 
             </form>
         
-        </div>
+        </div></div></div>
         <?php include 'inc/footer.php'; ?>

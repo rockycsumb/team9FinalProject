@@ -77,6 +77,7 @@
               <a class="nav-item nav-link" href="#">Admin Page</a>
             </div>
           </div>
+          <a class="btn btn-outline-light" href="admin.php">Return</a>&nbsp;
           <a class="btn btn-outline-light" href="logout.php">Logout</a>            
         </div>
       </nav>
@@ -92,7 +93,7 @@
         <div class="container-fluid h-100" id="prodSearch">
             <div class="row justify-content-center align-items-center h-100">
                 <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                    <form action="">
+                    <form>
                         <h4 id="pageTitle">Fill Out New Product Information</h4>
                         <div class="form-group">
                                 <label><strong>Product Name</strong></label>    

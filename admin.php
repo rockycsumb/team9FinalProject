@@ -45,7 +45,7 @@
               <a class="nav-item nav-link active" href="#">Admin Page<span class="sr-only">(current)</span></a>
             </div>
           </div>
-          <a class="btn btn-outline-light" href="addProduct.php">Add Product</a>  
+          <a class="btn btn-outline-light" href="addProduct.php">Add Product</a>  &nbsp;
           <a class="btn btn-outline-light" href="logout.php">Logout</a>            
         </div>
       </nav>

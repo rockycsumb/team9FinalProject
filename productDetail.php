@@ -78,7 +78,7 @@
                         <a class='navbar-brand' href='#'>Shopping Land</a>
                     </div>
                       <ul class='nav navbar-nav'>
-                            <li><a href='mainPage.php'>Home</a></li>
+                            <li><a href='index.php'>Home</a></li>
                             <li><a href='scart.php'>
                             <span class='glyphicon glyphicon-shopping-cart' area-hidden='true'>
                                 Cart: <?php displayCount();?>
