@@ -35,28 +35,28 @@
     }
     include 'inc/header.php';
 ?>
-
-    </head>
-    <body>
+  <body>
+    <div class="sticky-top">
+      <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
         <div class="container">
-           <!-- Bootstrap Navagation Bar -->
-              <nav class='navbar navbar-default - navbar-fixed-top'>
-                <div class='container-fluid'>
-                    <div class='navbar-header'>
-                        <a class='navbar-brand' href='#'>Shopping Land</a>
-                    </div>
-                      <ul class='nav navbar-nav'>
-                            <li><a href='index.php'>Home</a></li>
-                            <li><a href='scart.php'>
-                            <span class='glyphicon glyphicon-shopping-cart' area-hidden='true'>
-                                Cart: <?php displayCount();?>
-                            </span>
-                            </a></li>
-                        </ul>
-                </div>
-            </nav>
-            
+          <a class="navbar-brand" href="index.php">E-Wheels</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-item nav-link" href="#">Features</a>
+              <a class="nav-item nav-link" href="admin.php">Admin Page</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+    
+    <div class="container">            
       <form id="prodSearch">
+        <h4 id="pageTitle">Product Search</h4>
         <div class="form-row">
     
           <div class="col-md-3 mb-3">

@@ -9,6 +9,10 @@ body {
     font-family: 'Calibri',sans-serif;
 }
 
+nav {
+  margin-bottom: 5px;
+}
+
 h1 {
     text-align: center;
     font-size: 3em;
@@ -16,6 +20,11 @@ h1 {
 
 h3 {
     margin-left: 5%;
+}
+
+#pageTitle{
+  color: #A2A2A2;
+  font-family: 'Roboto', sans-serif;
 }
 
 #search {
@@ -60,9 +69,9 @@ h3 {
     text-align:center;
 }
 
-.adminButtons{
-    display:inline;
-}
+/*.adminButtons{*/
+/*    display:inline;*/
+/*}*/
 
 .card {
     width: 90%;
@@ -79,7 +88,7 @@ h3 {
 }
 
 /*input[type="submit"] {*/
-/*    box-shadow: inset 0px 1px 0px 0px #305A72;*/
+/*  box-shadow: inset 0px 1px 0px 0px #305A72;*/
 /*	background-color: #002a4e;*/
 /*	border: 1px solid #305A72;*/
 /*	display: inline-block;*/
@@ -159,7 +168,6 @@ h3 {
 }
 
 #displayCartTable td {
-   
     padding-right: 10px;
     
 }

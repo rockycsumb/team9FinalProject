@@ -29,29 +29,29 @@
             }
         </script>
     </head>
+    
     <body>
+    <div class="sticky-top">
+      <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
         <div class="container">
-        <!-- Bootstrap Navagation Bar -->
-              <nav class='navbar navbar-default - navbar-fixed-top'>
-                <div class='container-fluid'>
-                    <div class='navbar-header'>
-                        <a class='navbar-brand' href='#'>Shopping Land</a>
-                    </div>
-                    <div id="addProduct">
-                        <form class="adminButtons" action="addProduct.php">
-                            <input class="btn btn-primary" type="submit" id='beginning' name='adproduct' value="Add Product" />
-                        </form>
-                        <form class="adminButtons" action="logout.php">
-                            <input class="btn btn-primary" type="submit" id='beginning' value="Logout" />
-                        </form>
-                    </div>
-                            
-                        </ul>
-                </div>
-            </nav>
-        
-        
-        <div class="container-fluid" id="prodSearch">
+          <a class="navbar-brand" href="index.php">E-Wheels</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-item nav-link" href="index.php">Home</a>
+              <a class="nav-item nav-link" href="#">Features</a>
+              <a class="nav-item nav-link active" href="#">Admin Page<span class="sr-only">(current)</span></a>
+            </div>
+          </div>
+          <a class="btn btn-outline-light" href="addProduct.php">Add Product</a>  
+          <a class="btn btn-outline-light" href="logout.php">Logout</a>            
+        </div>
+      </nav>
+    </div>
+
+        <div class="container" id="prodSearch">
         <?php 
             $records = displayAllProducts();
             echo "<table class='table table-striped'>";
