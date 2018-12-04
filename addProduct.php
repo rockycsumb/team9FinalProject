@@ -74,7 +74,7 @@
             <div class="navbar-nav">
               <a class="nav-item nav-link" href="index.php">Home</a>
               <a class="nav-item nav-link" href="#">Features</a>
-              <a class="nav-item nav-link" href="#">Admin Page</a>
+              <a class="nav-item nav-link" href="admin.php">Admin Page</a>
             </div>
           </div>
           <a class="btn btn-outline-light" href="logout.php">Logout</a>            
