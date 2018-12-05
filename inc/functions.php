@@ -13,7 +13,7 @@ function displayCart()
     // then below itemDescription = item[description]
     
     
-   // print_r($_SESSION["cart"]); 
+    //print_r($_SESSION["cart"]); 
     $itemTotal = 0;
     
     if(!empty($_SESSION['cart']))
@@ -34,11 +34,12 @@ function displayCart()
         foreach ($_SESSION['cart'] as $item)
         {
             $itemName = $item['name'];
-            $itemPrice = number_format($item['price'],2);
+            $itemPrice = floatval($item['price']);
             $itemImage = $item['image'];
             $itemId= $item['id'];
             $itemQuant = $item['quantity'];
             $itemDescription = $item['description'];
+            $itemTotal += floatval($itemPrice) * floatval($itemQuant);
             
             echo "<tr>";
             // echo "<td><img width='100px' height='50px' src='$itemImage'></td>";
@@ -46,6 +47,7 @@ function displayCart()
             // echo '<td><h4>' . $itemName . " " . $itemDescription .  ' </h4></td>';
             echo "<td><strong>" . $itemName . "</strong><br>" . $itemDescription."</td>"; 
             //echo "<td><h4>$itemDescription</h4></td>";
+            $itemPrice = number_format(floatval($itemPrice),2);
             echo "<td>$$itemPrice</td>";
            //echo "<td><h4>$itemQuant</h4></td>";
             
@@ -60,12 +62,12 @@ function displayCart()
             echo "<td><button class='btn btn-danger'>Remove</button></td>";
             echo "</form>";
             
-            $itemTotal += floatval($itemPrice) * floatval($itemQuant);
+            //$itemTotal += floatval($itemPrice) * floatval($itemQuant);
             
             
         }
         // Format Money
-        $itemTotal = number_format($itemTotal, 2);
+        $itemTotal = number_format(floatval($itemTotal), 2);
         
         echo "</tr>";
             echo "<tr>";

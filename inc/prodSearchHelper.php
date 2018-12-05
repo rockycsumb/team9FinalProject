@@ -112,13 +112,13 @@
                     $itemDescription = $item['productDescription']; // Added by Rocky
                     
                     //Format price as currency
-                    $itemPrice = number_format(($itemPrice),0,'.',',');
+                    $itemPriceFormated = number_format(($itemPrice),0,'.',',');
                     
                     echo "<tbody>";
                     echo "<tr id='mpRow'>";
                     echo "<th scope='row'><div id='mpRowImgDiv'><img id='mpRowImg' src='$itemImage'></div></th>";
                     echo "<td><strong>$itemName</strong><br>$itemDescription</td>";
-                    echo "<td>$".$itemPrice."</td>";
+                    echo "<td>$".$itemPriceFormated."</td>";
                     echo "<form method='post'>";
                     
                     echo "<input type='hidden' name='itemName' value='$itemName'>";

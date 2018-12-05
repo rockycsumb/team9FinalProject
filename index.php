@@ -16,6 +16,7 @@
         $newItem = array();
         $newItem['name'] = $_POST['itemName'];
         $newItem['id'] = $_POST['itemId'];
+        echo $_POST['itemPrice'];
         $newItem['price'] = $_POST['itemPrice'];
         $newItem['image'] = $_POST['itemImage'];
         $newItem['description'] = $_POST['itemDescription']; // Added by Rocky
