@@ -36,6 +36,7 @@
     include 'inc/header.php';
 ?>
   <body>
+    <!-- Bootstrap Navagation Bar -->
     <div class="sticky-top">
       <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
         <div class="container">

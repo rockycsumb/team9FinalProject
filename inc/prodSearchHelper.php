@@ -116,7 +116,7 @@
                     echo "<tbody>";
                     echo "<tr id='mpRow'>";
                     echo "<th scope='row'><div id='mpRowImgDiv'><img id='mpRowImg' src='$itemImage'></div></th>";
-                    echo "<td>$itemName</td>";
+                    echo "<td><strong>$itemName</strong><br>$itemDescription</td>";
                     echo "<td>$".$itemPrice."</td>";
                     echo "<form method='post'>";
                     
