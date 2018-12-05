@@ -73,7 +73,7 @@
         
         $stmt = $conn->prepare($sql);
         $stmt->execute($np);
-        $updateAlert= '<div class="container"><div class="alert alert-success" role="alert">Product has been updated!</div></div>';
+        $updateAlert= '<div class="alert alert-success" role="alert">Product has been updated!</div>';
         
     }
     
@@ -87,7 +87,7 @@
     </head>
     <body>
         
-        <div class="sticky-top">
+    <div class="sticky-top">
       <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
         <div class="container">
           <a class="navbar-brand" href="index.php">E-Wheels</a>
@@ -101,65 +101,72 @@
               <a class="nav-item nav-link" href="#">Admin Page</a>
             </div>
           </div>
-          <a class="btn btn-outline-light" href="admin.php">Return</a>&nbsp;
+          <!--<a class="btn btn-outline-light" href="admin.php">Return</a>&nbsp;-->
           <a class="btn btn-outline-light" href="logout.php">Logout</a>            
         </div>
       </nav>
     </div>
-    <div class="container-fluid h-100" id="prodSearch">
-         <div class="row justify-content-center align-items-center h-100">
-                <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3">
-            <?php
-                echo $updateAlert;
-            ?>
-        
-            <form>
-                <h4 id="pageTitle">Update Product Information</h4>
+    
+    <?php echo $updateAlert;?>
+    <div class="container">
+            <form id="prodSearch">
                 <input type="hidden" name="productId" value="<?=$product['productID']?>" />
                 
-                    <div class="form-group">
-                        <label><strong>Product Name</strong></label>    
-                        <input type="text" class="form-control" name="productName" placeholder="Enter product name" value="<?=$product['productName']?>"/>
-                    </div>  
-                    <div class="form-group">
-                        <label><strong>Description</strong></label>    
-                        <textarea class="form-control" name="description" cols="50" rows="4"><?=$product['productDescription']?></textarea>
+                    <div class="container">
+                      <div class="row">  
+                        <div class="col-sm-3">
+                            <!-- 2 empty sections in the left -->
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <h4 id="pageTitle">Update Product Information</h4>
+                                <label><strong>Product Name</strong></label>    
+                                <input type="text" class="form-control" name="productName" placeholder="Enter product name" value="<?=$product['productName']?>"/>
+                            </div>  
+                            <div class="form-group">
+                                <label><strong>Description</strong></label>    
+                                <textarea class="form-control" name="description" cols="50" rows="4"><?=$product['productDescription']?></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label><strong>Price</strong></label>    
+                                <input type="text" class="form-control" name="price" value="<?=$product['price']?>"/>
+                            </div>
+                        
+                            <div class="form-group">
+                                <label><strong>Category</strong></label>    
+                                <select name="catId" class="form-control">
+                                    <option>Select One</option>
+                                    <?php 
+                                        getCategories($product['categoryID']); 
+                                    ?>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label><strong>Brand</strong></label>    
+                                <select name="brandID" class="form-control">
+                                    <option>Select One</option>
+                                    <?php 
+                                        getBrands($product['brandID']); 
+                                    ?>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label><strong>Set Image Url</strong></label>    
+                                <input type="text" class="form-control" name="productImage" value="<?=$product['productImage']?>"/>
+                            </div>
+                        
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-primary btn-block" name="updateProduct" value="Update" />
+                                <a class="btn btn-info btn-block" href="admin.php" >Cancel</a>
+                            </div>
+                        </div> 
+                        <div class="col-sm-3">
+                        <!-- 2 empty sections in the right -->
+                        </div>
+                      </div>
                     </div>
-                    <div class="form-group">
-                        <label><strong>Price</strong></label>    
-                        <input type="text" class="form-control" name="price" value="<?=$product['price']?>"/>
-                    </div>
-                
-                    <div class="form-group">
-                        <label><strong>Category</strong></label>    
-                        <select name="catId" class="form-control">
-                            <option>Select One</option>
-                            <?php 
-                                getCategories($product['categoryID']); 
-                            ?>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label><strong>Brand</strong></label>    
-                        <select name="brandID" class="form-control">
-                            <option>Select One</option>
-                            <?php 
-                                getBrands($product['brandID']); 
-                            ?>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label><strong>Set Image Url</strong></label>    
-                        <input type="text" class="form-control" name="productImage" value="<?=$product['productImage']?>"/>
-                    </div>
-                
-                    <div class="form-group">
-                        <input type="submit" class="btn btn-primary" name="updateProduct" value="Update Product" />
-                    </div>
-               
-                
-                
+               </div>
             </form>
         
-        </div></div></div>
+        </div>
         <?php include 'inc/footer.php'; ?>

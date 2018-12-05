@@ -90,6 +90,7 @@
              $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                 echo "<div id='searchResults'>";
+                echo "<h4 id='pageTitle'>Search Results</h4>";
                 echo "<table class='table table-hover'>";
                 echo "<thead class='thead-light'>";
                 echo "<tr>";

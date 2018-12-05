@@ -63,39 +63,44 @@
 
     </head>
     <body>
-    <div class="sticky-top">
-      <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
-        <div class="container">
-          <a class="navbar-brand" href="index.php">E-Wheels</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-              <a class="nav-item nav-link" href="index.php">Home</a>
-              <a class="nav-item nav-link" href="#">Features</a>
-              <a class="nav-item nav-link" href="admin.php">Admin Page</a>
+        <div class="sticky-top">
+            <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+                <div class="container">
+                    <a class="navbar-brand" href="index.php">E-Wheels</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link" href="index.php">Home</a>
+                        <a class="nav-item nav-link" href="#">Features</a>
+                        <a class="nav-item nav-link" href="admin.php">Admin Page</a>
+                    </div>
+                </div>
+              <!--<a class="btn btn-outline-light" href="admin.php">Return</a>&nbsp;-->
+              <a class="btn btn-outline-light" href="logout.php">Logout</a>            
             </div>
-          </div>
-          <a class="btn btn-outline-light" href="admin.php">Return</a>&nbsp;
-          <a class="btn btn-outline-light" href="logout.php">Logout</a>            
+          </nav>
         </div>
-      </nav>
-    </div>
-        <?php
+    
+        <?php 
             if($submit == true){
                 echo '<div class="alert alert-success" role="alert"> Product Successfully Added </div>';
             }
-              
         ?>
         
-    <!--<div id="prodSearch">-->
-        <div class="container-fluid h-100" id="prodSearch">
-            <div class="row justify-content-center align-items-center h-100">
-                <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                    <form>
-                        <h4 id="pageTitle">Fill Out New Product Information</h4>
-                        <div class="form-group">
+        <div class="container">
+            <form id="prodSearch">
+                <input type="hidden" name="productId" value="<?=$product['productID']?>" />
+                
+                    <div class="container">
+                      <div class="row">  
+                        <div class="col-sm-3">
+                            <!-- 2 empty sections in the left -->
+                        </div>
+                        <div class="col-sm-6">
+                            <h4 id="pageTitle">Fill Out New Product Information</h4>
+                            <div class="form-group">
                                 <label><strong>Product Name</strong></label>    
                                 <input type="text" class="form-control" name="productName" placeholder="Enter product name"/>
                             </div>
@@ -127,9 +132,15 @@
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary btn-block" name="submitProduct" value="Add Product">Add Product</button>
-                            </div>                        
-                    </form>
-                </div>
-            </div>
-        </div>
+                                <a class="btn btn-info btn-block" href="admin.php" >Cancel</a>
+                            </div>  
+                        </div> 
+                        <div class="col-sm-3">
+                        <!-- 2 empty sections in the right -->
+                        </div>
+                      </div>
+                    </div>
+               </div>
+            </form>    
+        
        <?php include 'inc/footer.php'; ?>
