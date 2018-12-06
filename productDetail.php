@@ -3,106 +3,138 @@
     session_start();
     
     function getProductResult(){
-    $conn = getDatabaseConnection($dbname = "finalproject");
-    
-    if(isset($_GET['productID']))
-    {
-    $productID = $_GET['productID']; //Get from the Get request
-    $sql = "SELECT * 
-                    FROM f_product
-                    WHERE productID = :pId
-                    ";
+        $conn = getDatabaseConnection($dbname = "finalproject");
+        
+        if(isset($_GET['productID']))
+        {
+            $productID = $_GET['productID']; //Get from the Get request
+            $sql = "SELECT * 
+                            FROM f_product
+                            WHERE productID = :pId
+                            ";
+                    
+            $np = array();
+            $np[":pId"] = $productID;
             
-    $np = array();
-    $np[":pId"] = $productID;
-    
-    $stmt = $conn->prepare($sql);
-    $stmt->execute($np);
-    $records = $stmt->fetch(PDO::FETCH_ASSOC);
-    echo "<table>";
-    echo "<tr>";
-    echo '<th>Product Name</th>
-            <th scope="col"></th>
-            <th scope="col"></th>
-            <th scope="col"></th>
-            <th>Description</th>';
-    echo "</tr>";
-    echo "<tr>";
-    echo "<td>";
-    echo $records['productName'] . "";
-    echo "</td>";
-    echo "<td colspan='3'>";
-    echo "<img src='" . $records['productImage'] . "' width='200'/>";
-    echo "</td>";
-    echo "<td>";
-    echo $records['productDescription'];
-    echo "</td>";
-    echo "</tr>";
-    echo "<tr>";
-    echo "<td>";
-    echo "*******Likes are Here ********";
-    echo "</td>";
-    echo "</tr>";
-    echo "<tr>";
-    echo "<td>";
-    echo "*******Comments are Here ********";
-    echo "</td>";
-    echo "</tr>";
-    echo "</table>";
-    }
+            $stmt = $conn->prepare($sql);
+            $stmt->execute($np);
+            $record = $stmt->fetch(PDO::FETCH_ASSOC);
+        
+            return $record;
+        }
         
     }
-
-
-?>
-
-
-
-
-<!DOCTYPE html>
-<html>
+     function getCategory($catId) {
+        global $conn;
+        
+        $sql = "SELECT categoryID, categoryName FROM f_category WHERE categoryID = $catId";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $record = $stmt->fetch(PDO::FETCH_ASSOC);
+        
+        return $record;
+    }
     
-    <head>
-      <title>Product Details Page</title>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-      <link href="css/styles.css" rel="stylesheet" type="text/css" />
-      <link href="https://fonts.googleapis.com/css?family=Fira+Sans|Nunito|Roboto" rel="stylesheet">
+    function getBrand($brandID) {
+        global $conn;
+        
+        $sql = "SELECT brandID, brandName FROM f_brands WHERE brandID = $brandID";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $record = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $record;
+    }
+    
+    
+    $product = getProductResult();
+    $productCategory = getCategory($product['categoryID']);
+    $productBrand = getBrand($product['brandID']);
+
+    include 'inc/header.php';
+?>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
+
     </head>
     <body>
-        <div class="container">
-           <!-- Bootstrap Navagation Bar -->
-              <nav class='navbar navbar-default - navbar-fixed-top'>
-                <div class='container-fluid'>
-                    <div class='navbar-header'>
-                        <a class='navbar-brand' href='#'>Shopping Land</a>
+        
+        <div class="sticky-top">
+            <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+                <div class="container">
+                  <a class="navbar-brand" href="index.php">E-Wheels</a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                      <a class="nav-item nav-link" href="index.php">Home</a>
+                      <a class="nav-item nav-link" href="#">Features</a>
+                      <a class="nav-item nav-link" href="#">Admin Page</a>
                     </div>
-                      <ul class='nav navbar-nav'>
-                            <li><a href='index.php'>Home</a></li>
-                            <li><a href='scart.php'>
-                            <span class='glyphicon glyphicon-shopping-cart' area-hidden='true'>
-                                Cart: <?php displayCount();?>
-                            </span>
-                            </a></li>
-                        </ul>
+                  </div>
+                  <a class="btn btn-outline-light" href="scart.php">
+                    <span class='glyphicon glyphicon-shopping-cart' aria-hidden='true'>
+                    </span>Cart: <?php displayCount();?> </a>
+                       
                 </div>
             </nav>
-            <div class="row">
-               <?php
-               getProductResult()
-               ?>
-            </div>
+        </div>
+        <div class="container">
+                <form id="prodSearch">
+                <input type="hidden" name="productId" value="<?=$product['productID']?>" />
+                
+                    <div class="container">
+                      <div class="row">  
+                        <div class="col-sm-3">
+                            <!-- 2 empty sections in the left -->
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <h4 id="pageTitle">Product Details</h4>
+                                <img class="form-control" src="<?=$product['productImage']?>"/>
+                            </div>
+                            <div class="form-group">
+                                
+                                <label><strong>Product Name</strong></label>    
+                                <label class="form-control" ><?=$product['productName']?></label>
+                            </div>  
+                            <div class="form-group">
+                                <label><strong>Description</strong></label>    
+                                <label class="form-control" cols="50" rows="4"><?=$product['productDescription']?></label>
+                            </div>
+                            <div class="form-group">
+                                <label><strong>Price</strong></label>    
+                                <label class="form-control" ><?=$product['price']?></label>
+                            </div>
+                        
+                            <div class="form-group">
+                                <label><strong>Category</strong></label>    
+                                <label class="form-control" ><?=$productCategory['categoryName']?></label>
+                            </div>
+                            <div class="form-group">
+                                <label><strong>Brand</strong></label>    
+                                <label class="form-control"><?=$productBrand['brandName']?></label>
+                            </div>
+                            
+                        
+                            <div class="form-group">
+                                <a class="btn btn-primary btn-block" onclick="goBack()" >Return</a>
+                            </div>
+                        </div> 
+                        <div class="col-sm-3">
+                        <!-- 2 empty sections in the right -->
+                        </div>
+                      </div>
+                    </div>
+               </div>
+            </form>
+            
         </div>
         
-      <footer>
-        Team 9 | Final Project<br>
-        CST336-40 Internet Programming 2018&copy; <br/>
-        <strong>Disclaimer:</strong> The information in this webpage is ficticious.  It is used for academic purposes only.
-        <figure><a href="https://csumb.edu/"><img src="img/csumb_logo.png" alt="CSUMB logo"/></a></figure>
-      </footer>  
-      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-      </div>
-    </body>
-</html>
+      
+      
+      <?php include 'inc/footer.php'; ?>
