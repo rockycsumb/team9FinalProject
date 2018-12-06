@@ -3,7 +3,7 @@
     session_start();
     
     if (isset($_POST['removeId'])){
-      echo'what is this';
+      
       foreach ($_SESSION['cart'] as $itemKey => $item){
         if ($item['id'] == $_POST['removeId']){
           unset($_SESSION['cart'][$itemKey]);

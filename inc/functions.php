@@ -5,6 +5,12 @@ function displayCartCount()
     echo count($_SESSION['cart']);
 }
 
+function resetCart()
+{
+    unset($_SESSION['cart']);
+    //echo count($_SESSION['cart']);
+}
+
 function displayCart()
 {
     
@@ -161,23 +167,8 @@ function displaySummary()
            
             echo "<td></td>";
             echo "<td></td>";
-            echo "<td></td>";
             
-            /**
-            echo '<form method="post">';
-            echo "<input type='hidden' name='itemId' value='$itemId'>";
-            echo "<td id='quantNum'><input type='text' maxlength='3' size='3' name='update' class='form-control' placeHolder='$itemQuant'></td>";
-            echo '<td><button class="btn btn-warning">Update</button></td>';
-            echo "</form>";
-            
-            echo '<form method="post">';
-            echo "<input type='hidden' name='removeId' value='$itemId'>";
-            echo "<td><button class='btn btn-danger'>Remove</button></td>";
-            echo "</form>";
-            **/
-            
-            //$itemTotal += floatval($itemPrice) * floatval($itemQuant);
-            
+          
             
         }
         // Format Money

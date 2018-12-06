@@ -1,24 +1,7 @@
 <?php
     include 'inc/functions.php';
     session_start();
-    
-    if (isset($_POST['removeId'])){
-      echo'what is this';
-      foreach ($_SESSION['cart'] as $itemKey => $item){
-        if ($item['id'] == $_POST['removeId']){
-          unset($_SESSION['cart'][$itemKey]);
-        }
-      }
-    }
-    
-    if (isset($_POST['itemId'])){
-      foreach($_SESSION['cart'] as &$item){
-        if ($item['id'] == $_POST['itemId']){
-          $item['quantity'] = $_POST['update'];
-        }
-      }
-    }
-    
+    resetCart();
  ?>
                 
 <!DOCTYPE html>
@@ -49,6 +32,7 @@
               <a class="nav-item nav-link" href="#">Admin Page</a>
             </div>
           </div>
+          
           <a class="btn btn-outline-light" href="scart.php">
             <span class='glyphicon glyphicon-shopping-cart' aria-hidden='true'>
             </span>Cart: <?php displayCartCount();?> 
@@ -59,7 +43,7 @@
               
     <!-- Cart Items -->
     <div class="container" id="prodSearch">
-      ORDER COMPLETE --  RESET CART COUNT
+      <h2>ORDER COMPLETE!</h2>
     </div>
     
     <!-- Footer -->
