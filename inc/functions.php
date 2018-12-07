@@ -153,6 +153,7 @@ function displaySummary()
             $itemQuant = $item['quantity'];
             $itemDescription = $item['description'];
             $itemTotal += floatval($itemPrice) * floatval($itemQuant);
+            $subTotal = number_format($itemTotal,2);
             
             echo "<tr>";
             // echo "<td><img width='100px' height='50px' src='$itemImage'></td>";
@@ -174,15 +175,30 @@ function displaySummary()
         // Format Money
         $shippingCharge = shipCharges($itemTotal);
         
+        
+        $tax = ($itemTotal * .0925);
+        $displayTax = number_format($tax,2);
+        
+        
+        echo ' <h2> from total ' . $itemTotal . '</h2><br>';
+        echo ' <h2> from tax ' . $tax . '</h2><br>';
+        
+        $newTotal = $itemTotal + $tax;
+        echo ' <h2> new total ' . $newTotal . '</h2><br>';
+        
+        
+        
         if ($shippingCharge == 0)
         {
             $shippingCharge = 'Free Shipping';
+            $itemTotal = $itemTotal + $tax;
             $itemTotal = number_format(floatval($itemTotal), 2);
+          
         }
         else
         {
             $shippingCharge = number_format(floatval($shippingCharge), 2);
-            $itemTotal = $itemTotal + $shippingCharge;
+            $itemTotal = $itemTotal + $shippingCharge + $tax;
             $itemTotal = number_format(floatval($itemTotal), 2);
         
         }
@@ -196,9 +212,13 @@ function displaySummary()
             echo "<td></td>";
             echo "<td></td>";
             
-            echo '<td>Shipping Charge: ' . $shippingCharge . '<br>';
+            echo '<td>';
+            echo 'Sub Total: ' . $subTotal . '<br>';
+            echo 'Shipping Charge: ' . $shippingCharge . '<br>';
+            echo 'Taxes: ' . $displayTax . '<br>';
             echo '<strong> Total: $' . $itemTotal . '</strong> <br>';
-            echo '<a class="btn btn-primary" href="ordercomplete.php" role="button">Buy</a></td>';
+            echo '<a class="btn btn-primary" href="ordercomplete.php" role="button">Buy</a>';
+            echo '</td>';
             
             echo "</tr>";
         echo "</table>";

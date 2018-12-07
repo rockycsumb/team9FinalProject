@@ -39,8 +39,8 @@
         
         
         $sql = "INSERT INTO f_product
-        (productName, productDescription, productImage, brandID, categoryID, price, likesID)
-        VALUES(:productName, :productDescription, :productImage, :brandID, :catId, :price, :likesID)";
+        (productName, productDescription, productImage, brandID, categoryID, price)
+        VALUES(:productName, :productDescription, :productImage, :brandID, :catId, :price)";
         
         $np = array();
         $np[':productName'] = $productName;
@@ -49,7 +49,6 @@
         $np[':brandID'] = $brandID;
         $np[':catId'] = $catId;
         $np[':price'] = $productPrice;
-        $np[':likesID'] = 1;
         
         
         $stmt = $conn->prepare($sql);
