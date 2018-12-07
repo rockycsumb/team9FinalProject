@@ -132,7 +132,7 @@
                     else
                         echo "<td><button class='btn btn-warning'>Add to Cart</button></td>";
                     echo "</form>";
-                    echo "<td><a class='btn btn-primary' href='productDetail.php?productID=".$itemId."' role='button'>Details</a></td>";
+                    echo "<td><input type='button' id='". $itemId . "' class='btn btn-primary prodDetails'  value='Details'></td>";
                     echo "</tr>";
                     echo "</tbody>";    
                     

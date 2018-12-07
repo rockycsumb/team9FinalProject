@@ -249,3 +249,21 @@ footer{
     -webkit-text-decoration-skip: objects;
 }
 
+/*********************************/
+/* CSS for Details - Modal For   */
+/*********************************/
+
+.detailsImg{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+  height: 200px;
+  object-fit: contain;
+  overflow: hidden;
+}
+
+.dscBckgrnd{
+  background-color: #F2F2F2;
+  padding: 10px;
+}

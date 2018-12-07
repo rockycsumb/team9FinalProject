@@ -69,7 +69,7 @@
             <input type="text" class="form-control" name="product" placeholder="Enter product name" value="<?php if(isset($_GET['product'])){ echo $_GET['product'];} ?>"/>
           </div>  
           
-          <div class="col-md-2 mb-3">             
+          <div class="col-md-2 mb-2">             
             <label><strong>Category</strong></label>
             <select name="category" class="form-control">
                 <option value=""> Select One </option>
@@ -77,7 +77,7 @@
             </select>
           </div>
       
-          <div class="col-md-2 mb-3">
+          <div class="col-md-2 mb-2">
             <label><strong>Brand</strong></label>
             <select name="brand" class="form-control">
               <option value=""> Select One </option>
@@ -85,22 +85,22 @@
             </select>
           </div>
           
-          <div class="col-md-1 mb-3">
+          <div class="col-md-1 mb-1">
             <label><strong>From:</strong></label>
             <input type="text" class="form-control" name="priceFrom" value="<?php if(isset($_GET['priceFrom'])){ echo $_GET['priceFrom'];} ?>"/>
           </div>
           
-          <div class="col-md-1 mb-3">
+          <div class="col-md-1 mb-1">
             <label for=""><strong>To:</strong></label>
             <input type="text" class="form-control" name="priceTo" value="<?php if(isset($_GET['priceTo'])){ echo $_GET['priceTo'];} ?>"/>
           </div>              
           
-          <div class="col-md-2 mb-3">
+          <div class="col-md-2 mb-2">
             <label><strong>Sort By</strong></label><br>
-            <div class="form-check-inline">
+            <div class="form-check form-check-inline">
               <input type="radio" class="form-check-input" name="orderBy" value="name" <?php if(isset($_GET['orderBy']) && $_GET['orderBy'] == 'name') echo 'checked="checked"'; ?>/>Name
             </div>
-            <div class="form-check-inline">
+            <div class="form-check form-check-inline">
               <input type="radio" class="form-check-input" name="orderBy" value="price" <?php if(isset($_GET['orderBy']) && $_GET['orderBy'] == 'price') echo 'checked="checked"'; ?>/>Price 
             </div>
           </div>
@@ -165,9 +165,8 @@
                       </a>
                     <?php } ?>
                     
-                   
-            <!--</div>-->
           </div>
         </div>
         
-      <?php include 'inc/footer.php'; ?>
+        <?php include 'productDetail.php'; ?>
+        <?php include 'inc/footer.php'; ?>
