@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 04, 2018 at 11:50 PM
+-- Generation Time: Dec 07, 2018 at 01:41 AM
 -- Server version: 5.5.57-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.22
 
@@ -69,20 +69,23 @@ INSERT INTO `f_category` (`categoryID`, `categoryName`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `f_likesid`
+-- Table structure for table `f_likes`
 --
 
-CREATE TABLE `f_likesid` (
+CREATE TABLE `f_likes` (
   `likesID` int(11) NOT NULL,
   `productID` int(11) NOT NULL,
   `comments` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `f_likesid`
+-- Dumping data for table `f_likes`
 --
 
-
+INSERT INTO `f_likes` (`likesID`, `productID`, `comments`) VALUES
+(1, 31, 'This is a test'),
+(2, 51, 'This is a test'),
+(3, 51, 'This is a test 2');
 
 -- --------------------------------------------------------
 
@@ -126,8 +129,7 @@ INSERT INTO `f_product` (`productID`, `productName`, `productDescription`, `prod
 (201, 'Aurora', '40 mile range', 'https://www.bestcyclebikes.com/wp-content/uploads/EVELO-Aurora-Electric-Bike-with-Shimano-Alivio-8-Speed-Drivetrain-250W-Mid-Drive-Motor-White-0-0.jpg\r\n', 61, 91, '2999.00'),
 (211, 'Delta X', '45 mile range', 'https://biketoday.news/storage/articles/1896/1531757872.jpg\r\n', 61, 91, '3999.00'),
 (221, 'Quest Max', '40 mile range', 'https://www.evelo.com/wp-content/uploads/2017/09/quest-max-steel-gray.jpg\r\n', 61, 91, '2999.00'),
-(231, 'Compass', '50 mile range', 'https://www.evelo.com/wp-content/uploads/2017/10/compass-featured.jpg\r\n', 61, 91, '3299.00'),
-(242, 'test2', 'test2', '', 41, 91, '34562.00');
+(231, 'Compass', '50 mile range', 'https://www.evelo.com/wp-content/uploads/2017/10/compass-featured.jpg\r\n', 61, 91, '3299.00');
 
 -- --------------------------------------------------------
 
@@ -167,78 +169,21 @@ ALTER TABLE `f_category`
   ADD PRIMARY KEY (`categoryID`);
 
 --
--- Indexes for table `f_likesid`
+-- Indexes for table `f_likes`
 --
-ALTER TABLE `f_likesid`
+ALTER TABLE `f_likes`
   ADD PRIMARY KEY (`likesID`),
   ADD KEY `productID` (`productID`);
-
---
--- Indexes for table `f_product`
---
-ALTER TABLE `f_product`
-  ADD PRIMARY KEY (`productID`),
-  ADD KEY `categoryID` (`categoryID`),
-  ADD KEY `likesID` (`likesID`),
-  ADD KEY `brandID` (`brandID`);
-
---
--- Indexes for table `f_users`
---
-ALTER TABLE `f_users`
-  ADD PRIMARY KEY (`userID`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `f_brands`
+-- AUTO_INCREMENT for table `f_likes`
 --
-ALTER TABLE `f_brands`
-  MODIFY `brandID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
-
---
--- AUTO_INCREMENT for table `f_category`
---
-ALTER TABLE `f_category`
-  MODIFY `categoryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
-
---
--- AUTO_INCREMENT for table `f_likesid`
---
-ALTER TABLE `f_likesid`
-  MODIFY `likesID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `f_product`
---
-ALTER TABLE `f_product`
-  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=243;
-
---
--- AUTO_INCREMENT for table `f_users`
---
-ALTER TABLE `f_users`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `f_likesid`
---
-ALTER TABLE `f_likesid`
-  ADD CONSTRAINT `f_likesid_ibfk_1` FOREIGN KEY (`productID`) REFERENCES `f_product` (`productID`);
-
---
--- Constraints for table `f_product`
---
-ALTER TABLE `f_product`
-  ADD CONSTRAINT `f_product_ibfk_2` FOREIGN KEY (`categoryID`) REFERENCES `f_category` (`categoryID`),
-  ADD CONSTRAINT `f_product_ibfk_3` FOREIGN KEY (`likesID`) REFERENCES `f_likesid` (`likesID`),
-  ADD CONSTRAINT `f_product_ibfk_4` FOREIGN KEY (`brandID`) REFERENCES `f_brands` (`brandID`);
+ALTER TABLE `f_likes`
+  MODIFY `likesID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,5 +1,7 @@
 <?php
-    include './inc/prodSearchHelper.php';
+    include 'inc/prodSearchHelper.php';
+    include 'inc/header.php';
+    
     session_start();
     
     function getProductResult(){
@@ -50,14 +52,73 @@
     $productCategory = getCategory($product['categoryID']);
     $productBrand = getBrand($product['brandID']);
 
-    include 'inc/header.php';
 ?>
+    
     <script>
         function goBack() {
             window.history.back();
         }
     </script>
-
+    <script>
+            $(document).ready( function(){
+                
+                $(".likesLink").click( function(){
+                    
+                    $("#likesNameLabel").html("<?=$product['productName']?>");
+                    $('#likesModal').modal("show");
+                    $("#likes").html("<img id='loadingImg' src='img/loading.gif'>");
+                    
+                    $.ajax({
+                        
+                        type: "GET",
+                        url: "inc/getLikes.php",
+                        dataType: "json",
+                        data: { "id": $("#prodID").val()},
+                        success: function(data, status) {
+                            console.log(data);
+                            console.log(status);
+                            if(!data.length){
+                                $("#likes").html("<label class='form-control'>No Comments, Add one below!</label> " );
+                            }
+                            else{
+                                $("#likes").append("<form id='prodSearch'> " );
+                                $("#likesNameLabel").append(data.length);
+                             
+                                for (var i = 0; i < data.length; i++) {
+                                    $("#likes").append("<div class='form-group'>");
+                                    $("#likes").append("<label class='form-control'>" + data[i].comments + "</label>");
+                                    $("#likes").append("</div>");
+                                }
+                            
+                                $("#likes").append("</form>");
+                                $("#loadingImg").hide();
+                            }
+                            
+                            
+                        },
+                        error: function(data, status){
+                            console.log(data);
+                            console.log(status);
+                        },
+                        complete: function(data, status){
+                            //optional, used for debugging purposes
+                            //alert(status);
+                        }
+                        
+                        
+                    }); // ajax 
+                }); //likesLink click
+                
+                $(".addComment").click( function(){
+                    $("#loadingImg").hide();
+                    var text = $('#newComment').val();
+                    $("#likes").append("<label class='form-control'>" + text + "</label>");
+                    $('#newComment').val('');
+                    
+                    
+                }); //addComment click
+            }); //document.ready
+        </script>
 
     </head>
     <body>
@@ -72,8 +133,8 @@
                   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
                       <a class="nav-item nav-link" href="index.php">Home</a>
-                      <a class="nav-item nav-link" href="#">Features</a>
-                      <a class="nav-item nav-link" href="#">Admin Page</a>
+                      <a class="nav-item nav-link" href="">Features</a>
+                      <a class="nav-item nav-link" href="admin.php">Admin Page</a>
                     </div>
                   </div>
                   <a class="btn btn-outline-light" href="scart.php">
@@ -85,7 +146,7 @@
         </div>
         <div class="container">
                 <form id="prodSearch">
-                <input type="hidden" name="productId" value="<?=$product['productID']?>" />
+                <input id="prodID" type="hidden" name="productId" value="<?=$product['productID']?>" />
                 
                     <div class="container">
                       <div class="row">  
@@ -123,6 +184,7 @@
                         
                             <div class="form-group">
                                 <a class="btn btn-primary btn-block" onclick="goBack()" >Return</a>
+                                <button id='<?=$product['productID']?>' type='button' class='btn btn-primary btn-block likesLink'>Reviews</button>
                             </div>
                         </div> 
                         <div class="col-sm-3">
@@ -134,7 +196,36 @@
             </form>
             
         </div>
-        
+        <!-- Modal -->
+        <div class="modal fade" id="likesModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hiden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="likesNameLabel"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="likes"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <form class="container-fluid">
+                            <div class='form-group'>
+                                <label><strong>New Comment</strong></label>
+                                <textarea class='form-control' name='description' id='newComment' cols='50' rows='4' placeholder='Enter new comment'></textarea>
+                            </div>
+                            <div class='form-group'>
+                                <button type='button' class='btn btn-primary btn-block addComment' onclick="">Add Comment</button>
+                            </div>
+                            <div class='form-group'>
+                                <button type="button" class="btn btn-secondary btn-block" data-dismiss="modal">Close</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
       
       
       <?php include 'inc/footer.php'; ?>

@@ -1,0 +1,76 @@
+[06-Dec-2018 21:31:29 UTC] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/ubuntu/workspace/finalProject/team9FinalProject/inc/getLikes.php on line 8
+[06-Dec-2018 21:31:29 UTC] PHP Stack trace:
+[06-Dec-2018 21:31:29 UTC] PHP   1. {main}() /home/ubuntu/workspace/finalProject/team9FinalProject/inc/getLikes.php:0
+[06-Dec-2018 21:35:48 UTC] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/ubuntu/workspace/finalProject/team9FinalProject/inc/getLikes.php on line 8
+[06-Dec-2018 21:35:48 UTC] PHP Stack trace:
+[06-Dec-2018 21:35:48 UTC] PHP   1. {main}() /home/ubuntu/workspace/finalProject/team9FinalProject/inc/getLikes.php:0
+[06-Dec-2018 21:36:41 UTC] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/ubuntu/workspace/finalProject/team9FinalProject/inc/getLikes.php on line 8
+[06-Dec-2018 21:36:41 UTC] PHP Stack trace:
+[06-Dec-2018 21:36:41 UTC] PHP   1. {main}() /home/ubuntu/workspace/finalProject/team9FinalProject/inc/getLikes.php:0
+[06-Dec-2018 21:39:52 UTC] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/ubuntu/workspace/finalProject/team9FinalProject/inc/getLikes.php on line 9
+[06-Dec-2018 21:39:52 UTC] PHP Stack trace:
+[06-Dec-2018 21:39:52 UTC] PHP   1. {main}() /home/ubuntu/workspace/finalProject/team9FinalProject/inc/getLikes.php:0
+[06-Dec-2018 21:40:37 UTC] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/ubuntu/workspace/finalProject/team9FinalProject/inc/getLikes.php on line 9
+[06-Dec-2018 21:40:37 UTC] PHP Stack trace:
+[06-Dec-2018 21:40:37 UTC] PHP   1. {main}() /home/ubuntu/workspace/finalProject/team9FinalProject/inc/getLikes.php:0
+[06-Dec-2018 21:40:47 UTC] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/ubuntu/workspace/finalProject/team9FinalProject/inc/getLikes.php on line 9
+[06-Dec-2018 21:40:47 UTC] PHP Stack trace:
+[06-Dec-2018 21:40:47 UTC] PHP   1. {main}() /home/ubuntu/workspace/finalProject/team9FinalProject/inc/getLikes.php:0
+[06-Dec-2018 21:41:16 UTC] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/ubuntu/workspace/finalProject/team9FinalProject/inc/getLikes.php on line 9
+[06-Dec-2018 21:41:16 UTC] PHP Stack trace:
+[06-Dec-2018 21:41:16 UTC] PHP   1. {main}() /home/ubuntu/workspace/finalProject/team9FinalProject/inc/getLikes.php:0
+[06-Dec-2018 21:52:48 UTC] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/ubuntu/workspace/finalProject/team9FinalProject/inc/getLikes.php on line 9
+[06-Dec-2018 21:52:48 UTC] PHP Stack trace:
+[06-Dec-2018 21:52:48 UTC] PHP   1. {main}() /home/ubuntu/workspace/finalProject/team9FinalProject/inc/getLikes.php:0
+[06-Dec-2018 22:10:30 UTC] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/ubuntu/workspace/finalProject/team9FinalProject/inc/getLikes.php on line 9
+[06-Dec-2018 22:10:30 UTC] PHP Stack trace:
+[06-Dec-2018 22:10:30 UTC] PHP   1. {main}() /home/ubuntu/workspace/finalProject/team9FinalProject/inc/getLikes.php:0
+[06-Dec-2018 22:10:33 UTC] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/ubuntu/workspace/finalProject/team9FinalProject/inc/getLikes.php on line 9
+[06-Dec-2018 22:10:33 UTC] PHP Stack trace:
+[06-Dec-2018 22:10:33 UTC] PHP   1. {main}() /home/ubuntu/workspace/finalProject/team9FinalProject/inc/getLikes.php:0
+[06-Dec-2018 22:11:17 UTC] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/ubuntu/workspace/finalProject/team9FinalProject/inc/getLikes.php on line 9
+[06-Dec-2018 22:11:17 UTC] PHP Stack trace:
+[06-Dec-2018 22:11:17 UTC] PHP   1. {main}() /home/ubuntu/workspace/finalProject/team9FinalProject/inc/getLikes.php:0
+[06-Dec-2018 22:11:24 UTC] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/ubuntu/workspace/finalProject/team9FinalProject/inc/getLikes.php on line 9
+[06-Dec-2018 22:11:24 UTC] PHP Stack trace:
+[06-Dec-2018 22:11:24 UTC] PHP   1. {main}() /home/ubuntu/workspace/finalProject/team9FinalProject/inc/getLikes.php:0
+[06-Dec-2018 22:13:11 UTC] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/ubuntu/workspace/finalProject/team9FinalProject/inc/getLikes.php on line 9
+[06-Dec-2018 22:13:11 UTC] PHP Stack trace:
+[06-Dec-2018 22:13:11 UTC] PHP   1. {main}() /home/ubuntu/workspace/finalProject/team9FinalProject/inc/getLikes.php:0
+[06-Dec-2018 22:13:36 UTC] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/ubuntu/workspace/finalProject/team9FinalProject/inc/getLikes.php on line 9
+[06-Dec-2018 22:13:36 UTC] PHP Stack trace:
+[06-Dec-2018 22:13:36 UTC] PHP   1. {main}() /home/ubuntu/workspace/finalProject/team9FinalProject/inc/getLikes.php:0
+[06-Dec-2018 22:15:02 UTC] PHP Fatal error:  Call to undefined function getDatabaseConnection() in /home/ubuntu/workspace/finalProject/team9FinalProject/inc/getLikes.php on line 3
+[06-Dec-2018 22:15:02 UTC] PHP Stack trace:
+[06-Dec-2018 22:15:02 UTC] PHP   1. {main}() /home/ubuntu/workspace/finalProject/team9FinalProject/inc/getLikes.php:0
+[07-Dec-2018 01:10:52 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000]: General error' in /home/ubuntu/workspace/finalProject/team9FinalProject/inc/getLikes.php:14
+Stack trace:
+#0 /home/ubuntu/workspace/finalProject/team9FinalProject/inc/getLikes.php(14): PDOStatement->fetchAll(2)
+#1 {main}
+  thrown in /home/ubuntu/workspace/finalProject/team9FinalProject/inc/getLikes.php on line 14
+[07-Dec-2018 01:11:19 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT comments
+            FROM f_likes
+            WHERE productID = NULL' at line 2' in /home/ubuntu/workspace/finalProject/team9FinalProject/inc/getLikes.php:13
+Stack trace:
+#0 /home/ubuntu/workspace/finalProject/team9FinalProject/inc/getLikes.php(13): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/ubuntu/workspace/finalProject/team9FinalProject/inc/getLikes.php on line 13
+[07-Dec-2018 01:14:44 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/ubuntu/workspace/finalProject/team9FinalProject/inc/getLikes.php on line 16
+[07-Dec-2018 01:15:29 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT comments
+            FROM f_likes
+            WHERE productID = NULL' at line 2' in /home/ubuntu/workspace/finalProject/team9FinalProject/inc/getLikes.php:13
+Stack trace:
+#0 /home/ubuntu/workspace/finalProject/team9FinalProject/inc/getLikes.php(13): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/ubuntu/workspace/finalProject/team9FinalProject/inc/getLikes.php on line 13
+[07-Dec-2018 01:18:44 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT comments
+            FROM f_likes
+            WHERE productID = NULL' at line 2' in /home/ubuntu/workspace/finalProject/team9FinalProject/inc/getLikes.php:14
+Stack trace:
+#0 /home/ubuntu/workspace/finalProject/team9FinalProject/inc/getLikes.php(14): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/ubuntu/workspace/finalProject/team9FinalProject/inc/getLikes.php on line 14
+[07-Dec-2018 01:19:05 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ubuntu/workspace/finalProject/team9FinalProject/inc/getLikes.php on line 15
+[07-Dec-2018 01:19:05 UTC] PHP Stack trace:
+[07-Dec-2018 01:19:05 UTC] PHP   1. {main}() /home/ubuntu/workspace/finalProject/team9FinalProject/inc/getLikes.php:0
+[07-Dec-2018 01:39:13 UTC] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/ubuntu/workspace/finalProject/team9FinalProject/inc/getLikes.php on line 15
