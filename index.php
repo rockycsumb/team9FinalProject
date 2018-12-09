@@ -98,10 +98,11 @@
           <div class="col-md-2 mb-2">
             <label><strong>Sort By</strong></label><br>
             <div class="form-check form-check-inline">
-              Name<input type="radio" class="form-check-input" name="orderBy" value="name" <?php if(isset($_GET['orderBy']) && $_GET['orderBy'] == 'name') echo 'checked="checked"'; ?>/>
-            <!--</div>-->
-            <!--<div class="form-check form-check-inline">-->
-              Price<input type="radio" class="form-check-input" name="orderBy" value="price" <?php if(isset($_GET['orderBy']) && $_GET['orderBy'] == 'price') echo 'checked="checked"'; ?>/>
+              
+              <input type="radio" class="form-check-input radio" name="orderBy" value="name" <?php if(isset($_GET['orderBy']) && $_GET['orderBy'] == 'name') echo 'checked="checked"'; ?>/>
+              <label class="custom-control-label radioLabel" for="name"><strong>Name</strong></label>
+              <input type="radio" class="form-check-input radio" name="orderBy" value="price" <?php if(isset($_GET['orderBy']) && $_GET['orderBy'] == 'price') echo 'checked="checked"'; ?>/>
+              <label class="custom-control-label radioLabel" for="price"><strong>Price</strong></label>
             </div>
           </div>
         </div>

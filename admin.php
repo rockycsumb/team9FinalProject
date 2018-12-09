@@ -43,6 +43,38 @@
         echo "<ol>";
     }
     
+    function displayLowThreeItems(){
+        global $conn;
+        $sql= "SELECT productName, price FROM f_product ORDER BY price ASC LIMIT 3";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        
+        echo "<ol>";
+        foreach($items as $item){
+          echo "<li>" . $item['productName'] . " - $" . number_format($item['price'],0,'.',',') . "</li>";
+        }
+        echo "<ol>";
+    }
+    
+    function displayMostLikedItems(){
+        global $conn;
+        $sql= "SELECT productName, COUNT(likesID)
+               FROM f_product NATURAL JOIN f_likes
+               GROUP BY productName
+               ORDER BY COUNT(likesID) DESC 
+               LIMIT 3";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        
+        echo "<ol>";
+        foreach($items as $item){
+          echo "<li>" . $item['productName'] . " Likes: " . $item['COUNT(likesID)'] . "</li>";
+        }
+        echo "<ol>";
+    }
+    
     function displayItemCount(){
         global $conn;
         $sql= "SELECT COUNT(*) FROM f_product";
@@ -108,21 +140,21 @@
         <div class="card-header">Number of Items</div>
         <div class="card-body">
           <p class="card-title">Total number of items currently in stock</p>
-          <h5 class="card-text"><?= displayItemCount()?></h5>
+          <p class="card-text"><?= displayItemCount()?></p>
         </div>
       </div>
       <div class="card bg-light mb-3" style="min-width:10em">
-        <div class="card-header">Most Expensive Item $</div>
+        <div class="card-header">Least Expensive Items</div>
         <div class="card-body">
-          <h5 class="card-title">$45,000.00</h5>
-          <p class="card-text">Under Construction</p>
+          <p class="card-title">Top 3 Items</p>
+          <p class="card-text"><?= displayLowThreeItems()?></p></p>
         </div>
       </div>
       <div class="card bg-light mb-3" style="min-width:10em">
-        <div class="card-header">Most Liked Item</div>
+        <div class="card-header">Most Liked Items</div>
         <div class="card-body">
-          <h5 class="card-title">Model X</h5>
-          <p class="card-text">Under Construction</p>
+          <p class="card-title">Top 3 Items</p>
+          <p class="card-text"><?= displayMostLikedItems()?></p>
         </div>
       </div>
       </div>
