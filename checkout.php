@@ -50,8 +50,8 @@
             </div>
           </div>
           <a class="btn btn-outline-light" href="scart.php">
-            <span class='glyphicon glyphicon-shopping-cart' aria-hidden='true'>
-            </span>Cart: <?php displayCartCount();?> 
+            <span class="fa fa-shopping-cart" ></span>
+            Cart: <?php displayCartCount();?> 
           </a>
         </div>
       </nav>

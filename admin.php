@@ -43,16 +43,16 @@
         echo "<ol>";
     }
     
-    function displayLowThreeItems(){
+    function displayAveragePriceByCategory(){
         global $conn;
-        $sql= "SELECT productName, price FROM f_product ORDER BY price ASC LIMIT 3";
+        $sql= "SELECT categoryName, AVG(price) FROM f_product NATURAL JOIN f_category GROUP BY categoryName ORDER BY AVG(price) DESC";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
         
         echo "<ol>";
         foreach($items as $item){
-          echo "<li>" . $item['productName'] . " - $" . number_format($item['price'],0,'.',',') . "</li>";
+          echo "<li>" . $item['categoryName'] . " - $" . number_format($item['AVG(price)'],0,'.',',') . "</li>";
         }
         echo "<ol>";
     }
@@ -126,7 +126,7 @@
         <div class="card-header">Average Price</div>
         <div class="card-body">
         <p class="card-title">The average price of all items currently in stock</p>
-        <h5 class="card-text"><?= displayAveragePrice()?></h5>
+        <p class="card-text"><?= displayAveragePrice()?></p>
         </div>
       </div>
       <div class="card bg-light mb-3" style="min-width:10em">
@@ -144,10 +144,10 @@
         </div>
       </div>
       <div class="card bg-light mb-3" style="min-width:10em">
-        <div class="card-header">Least Expensive Items</div>
+        <div class="card-header">Avg Price by Category</div>
         <div class="card-body">
-          <p class="card-title">Top 3 Items</p>
-          <p class="card-text"><?= displayLowThreeItems()?></p></p>
+          <p class="card-title">The average price of all items in each category</p>
+          <p class="card-text"><?= displayAveragePriceByCategory()?></p></p>
         </div>
       </div>
       <div class="card bg-light mb-3" style="min-width:10em">
@@ -160,7 +160,7 @@
       </div>
     </div>
     
-    <div id="prodSearch">
+    <div id="searchResults">
       <div class="d-flex bd-highlight mb-3">
         <div class="p-2 bd-highlight">
           <h4 id="pageTitle">Product List</h4>

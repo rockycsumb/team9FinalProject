@@ -45,7 +45,7 @@
         if (isset($_GET['searchForm'])) { 
             
 
-            echo "<h3>Products Found </h3>"; 
+            //echo "<h3>Products Found </h3>"; 
             
 
             $namedParameters = array();

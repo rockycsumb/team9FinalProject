@@ -16,7 +16,7 @@
         $newItem = array();
         $newItem['name'] = $_POST['itemName'];
         $newItem['id'] = $_POST['itemId'];
-        echo $_POST['itemPrice'];
+        //echo $_POST['itemPrice'];
         $newItem['price'] = $_POST['itemPrice'];
         $newItem['image'] = $_POST['itemImage'];
         $newItem['description'] = $_POST['itemDescription']; // Added by Rocky
@@ -58,10 +58,10 @@
       </nav>
     </div>
     
-    <div class="container-fluid">            
+    <div class="container">            
       <form id="prodSearch">
         <h4 id="pageTitle">Product Search</h4>
-        <div class="form-row col-md-12">
+        <div class="form-row">
     
           <div class="col-md-3 mb-3">
             <label><strong>Product ID</strong></label>    
@@ -108,9 +108,8 @@
         
         <button type="submit" class="btn btn-primary" name="searchForm">Search</button>  
       </form>
-      <div class="col-md-12">
       <?php displaySearchResults()?>
-      </div>
+      
       <div id="electricDeals">
             <!--<div class="col">-->
                 <h1>Electric <span class="fa fa-bolt" ></span> Deals</h1>
