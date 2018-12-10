@@ -1,7 +1,7 @@
     <?php
         include 'dbConnection.php';
 
-        $conn = getDatabaseConnection("csumbFinal"); //Starts the Db connection
+        $conn = getDatabaseConnection("finalproject"); //Starts the Db connection
 
         
         //Working 
@@ -38,7 +38,8 @@
     }
     
         //Working    
-        function displaySearchResults(){
+        function displaySearchResults()
+        {
         global $conn;
         
         if (isset($_GET['searchForm'])) { 
@@ -92,28 +93,13 @@
                  
                  
              }
-            
+    
+    
+
              $stmt = $conn->prepare($sql);
              $stmt->execute($namedParameters);
              $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-            foreach ($records as $record) 
-            {
-                 echo  $record["productName"] . " " . $record["productDescription"] . " $" . $record["price"] . "<br /><br />";
-            }
-        }
-        
-    }
-        
-        //Working
-        function getCarosel()
-        {
-            $arr = array();
-            
-            return $arr;
-        }
-    
-
+             
                 echo "<div id='searchResults' class='table-responsive' >";
                 echo "<h4 id='pageTitle'>Search Results</h4>";
                 echo "<table class='table table-hover table-sm' cellspacing='0' width='80%'>";
@@ -166,7 +152,9 @@
                 echo "</tbody>";   
                 echo "</table>";
                 echo "</div>";
-            }
+            
+        }
+            
         }
         
         //Working
