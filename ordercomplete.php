@@ -28,8 +28,8 @@
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
               <a class="nav-item nav-link" href="index.php">Home</a>
-              <a class="nav-item nav-link" href="#">Features</a>
-              <a class="nav-item nav-link" href="#">Admin Page</a>
+              <!-- <a class="nav-item nav-link" href="#">Features</a> -->
+              <a class="nav-item nav-link" href="admin.php">Admin Page</a>
             </div>
           </div>
           
@@ -43,7 +43,7 @@
               
     <!-- Cart Items -->
     <div class="container" id="prodSearch">
-      <h2>ORDER COMPLETE!</h2>
+      <h2 id="pageTitle">Order Complete!</h2>
     </div>
     
     <!-- Footer -->

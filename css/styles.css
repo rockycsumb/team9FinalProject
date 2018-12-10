@@ -44,16 +44,6 @@ h3 {
     margin: 0px auto;
 }
 
-/*#addProduct {
-    padding-bottom: 10px;
-    background-color: white;
-    border-radius: 10px;
-    color: #002a4e;
-    padding-top: 10px;
-    box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
-    border: 1px solid #305A72;
-    text-align:center;
-}*/
 
 #adminLogin {
     width: 90%;
@@ -69,9 +59,7 @@ h3 {
     text-align:center;
 }
 
-/*.adminButtons{*/
-/*    display:inline;*/
-/*}*/
+
 
 .card {
     width: 90%;
@@ -87,23 +75,6 @@ h3 {
     border: 1px solid #305A72;
 }
 
-/*input[type="submit"] {*/
-/*  box-shadow: inset 0px 1px 0px 0px #305A72;*/
-/*	background-color: #002a4e;*/
-/*	border: 1px solid #305A72;*/
-/*	display: inline-block;*/
-/*	cursor: pointer;*/
-/*	color: #FFFFFF;*/
-/*	padding: 8px 18px;*/
-/*	text-decoration: none;*/
-/*	font: 12px Arial, Helvetica, sans-serif;*/
-/*	margin: 0 auto;*/
-/*}*/
-
-
-/*#footer {*/
-/*    text-align: center;*/
-/*}*/
 
 
 #history {
@@ -249,3 +220,28 @@ footer{
     -webkit-text-decoration-skip: objects;
 }
 
+.radioLabel {
+    margin-left: 40px;
+}
+.radio {
+    margin-left: 20px;
+}
+
+/*********************************/
+/* CSS for Details - Modal For   */
+/*********************************/
+
+.detailsImg{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+  height: 200px;
+  object-fit: contain;
+  overflow: hidden;
+}
+
+.dscBckgrnd{
+  background-color: #F2F2F2;
+  padding: 10px;
+}

@@ -126,7 +126,7 @@ function displaySummary()
     
     
     //print_r($_SESSION["cart"]); 
-    echo '<a class="btn btn-primary" href="scart.php" role="button">Edit</a>';
+    //echo '<a class="btn btn-primary" href="scart.php" role="button">Edit</a>';
     $itemTotal = 0;
     
     if(!empty($_SESSION['cart']))
@@ -137,8 +137,8 @@ function displaySummary()
         echo "<tr>";
         echo "<th scope='col'></th>";
         echo "<th scope='col'>Product Name</th>";
-        echo "<th scope='col'>Price</th>";
         echo "<th scope='col'>Qty</th>";
+        echo "<th scope='col'>Price</th>";
         echo "<th scope='col'></th>";
         echo "<th scope='col'></th>";
         echo "</tr>";

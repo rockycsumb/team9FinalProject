@@ -1,140 +1,161 @@
-<?php
-    include './inc/prodSearchHelper.php';
-    session_start();
-    
-    function getProductResult(){
-        $conn = getDatabaseConnection($dbname = "finalproject");
-        
-        if(isset($_GET['productID']))
-        {
-            $productID = $_GET['productID']; //Get from the Get request
-            $sql = "SELECT * 
-                            FROM f_product
-                            WHERE productID = :pId
-                            ";
-                    
-            $np = array();
-            $np[":pId"] = $productID;
+<!--AJAX Modal From-->
+
+<script>
+    $(document).ready( function(){
+        var prodID = 0;
+        $(".prodDetails").click( function(){
             
-            $stmt = $conn->prepare($sql);
-            $stmt->execute($np);
-            $record = $stmt->fetch(PDO::FETCH_ASSOC);
-        
-            return $record;
-        }
-        
-    }
-     function getCategory($catId) {
-        global $conn;
-        
-        $sql = "SELECT categoryID, categoryName FROM f_category WHERE categoryID = $catId";
-        $stmt = $conn->prepare($sql);
-        $stmt->execute();
-        $record = $stmt->fetch(PDO::FETCH_ASSOC);
-        
-        return $record;
-    }
-    
-    function getBrand($brandID) {
-        global $conn;
-        
-        $sql = "SELECT brandID, brandName FROM f_brands WHERE brandID = $brandID";
-        $stmt = $conn->prepare($sql);
-        $stmt->execute();
-        $record = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $record;
-    }
-    
-    
-    $product = getProductResult();
-    $productCategory = getCategory($product['categoryID']);
-    $productBrand = getBrand($product['brandID']);
+            //alert($(this).attr('id'));
+            $('#prodInfoModal').modal("show");
+            $("#prodInfo").html("<img src='img/loading.gif'>");
+            var brandID = 0;
+            var categoryID = 0;
+            var productID = $(this).attr('id');
+            prodID = productID;
+            $.ajax({
 
-    include 'inc/header.php';
-?>
-    <script>
-        function goBack() {
-            window.history.back();
-        }
-    </script>
-
-
-    </head>
-    <body>
-        
-        <div class="sticky-top">
-            <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
-                <div class="container">
-                  <a class="navbar-brand" href="index.php">E-Wheels</a>
-                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
-                      <a class="nav-item nav-link" href="index.php">Home</a>
-                      <a class="nav-item nav-link" href="#">Features</a>
-                      <a class="nav-item nav-link" href="#">Admin Page</a>
-                    </div>
-                  </div>
-                  <a class="btn btn-outline-light" href="scart.php">
-                    <span class='glyphicon glyphicon-shopping-cart' aria-hidden='true'>
-                    </span>Cart: <?php displayCount();?> </a>
-                       
-                </div>
-            </nav>
-        </div>
-        <div class="container">
-                <form id="prodSearch">
-                <input type="hidden" name="productId" value="<?=$product['productID']?>" />
+                type: "GET",
+                url: "api/getProdInfo.php",
+                dataType: "json",
+                data: {"productId": $(this).attr('id')},
+                success: function(data,status) {
+                    //console.log(data);
+                    brandID = data.brandID;
+                    categoryID = data.categoryID;
+                    var prodDetails = "";
+                    prodDetails += "<form>";
+                    prodDetails += "<div class='form-group'>";
+                    prodDetails += "<input id='" + productID + "' type='hidden' class='prodDetailsId'>";
+                    prodDetails += "<img src='" + data.productImage + "' class='detailsImg'>";
+                    prodDetails += "</div><div class='form-group'>";
+                    prodDetails += "<label><strong>Description</strong></label>";
+                    prodDetails += "<label class='form-control' cols='50' rows='4'>" + data.productDescription + "</label>";
+                    prodDetails += "</div><div class='form-group'>";
+                    prodDetails += "<label><strong>Price</strong></label>";
+                    prodDetails += "<label class='form-control' >$" + data.price + "</label>";
+                    prodDetails += "</div><div class='form-group'>";
+                    prodDetails += "<label><strong>Category</strong></label>";    
+                    prodDetails += "<label id='category' class='form-control' ></label>";
+                    prodDetails += "</div><div class='form-group'>";
+                    prodDetails += "<label><strong>Brand</strong></label>";
+                    prodDetails += "<label id='brand' class='form-control'></label>";
+                    prodDetails += "</div><div class='form-group'>";
+                    prodDetails += "<label><strong>Comments</strong></label>";
+                    prodDetails += "<label id='comments' class='form-control' cols='50' rows='4'></label>";
+                    prodDetails += "</div></form>";
+                    $("#prodInfo").html(prodDetails);
+                    /*$("#prodInfo").html(<br >" + <img src='" + data.productImage + "' class='detailsImg'> +
+                                            "<div class='dscBckgrnd'><strong>Description:</strong> " + data.productDescription + "<br>" +
+                                            "<strong>Price:</strong> $" + data.price + "<br>" +
+                                            "<strong>Rating:</strong> ****** stars</div>");      
+                    */ 
+                   $("#prodNameModalLabel").html("<h4>Product Details: "+data.productName+"</h4>");                   
                 
-                    <div class="container">
-                      <div class="row">  
-                        <div class="col-sm-3">
-                            <!-- 2 empty sections in the left -->
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <h4 id="pageTitle">Product Details</h4>
-                                <img class="form-control" src="<?=$product['productImage']?>"/>
-                            </div>
-                            <div class="form-group">
-                                
-                                <label><strong>Product Name</strong></label>    
-                                <label class="form-control" ><?=$product['productName']?></label>
-                            </div>  
-                            <div class="form-group">
-                                <label><strong>Description</strong></label>    
-                                <label class="form-control" cols="50" rows="4"><?=$product['productDescription']?></label>
-                            </div>
-                            <div class="form-group">
-                                <label><strong>Price</strong></label>    
-                                <label class="form-control" ><?=$product['price']?></label>
-                            </div>
-                        
-                            <div class="form-group">
-                                <label><strong>Category</strong></label>    
-                                <label class="form-control" ><?=$productCategory['categoryName']?></label>
-                            </div>
-                            <div class="form-group">
-                                <label><strong>Brand</strong></label>    
-                                <label class="form-control"><?=$productBrand['brandName']?></label>
-                            </div>
-                            
-                        
-                            <div class="form-group">
-                                <a class="btn btn-primary btn-block" onclick="goBack()" >Return</a>
-                            </div>
-                        </div> 
-                        <div class="col-sm-3">
-                        <!-- 2 empty sections in the right -->
-                        </div>
-                      </div>
-                    </div>
-               </div>
-            </form>
-            
-        </div>
+                },
+                complete: function(data,status) { //optional, used for debugging purposes
+                //alert(status);
+                    getBrand(brandID);
+                    getCategory(categoryID);
+                    getComments(productID);
+                }
+            });//ajax
+
+        }); //.getLink click
         
-      
-      
-      <?php include 'inc/footer.php'; ?>
+        $(".addComment").click(function(){
+            
+            var comment = $("#newComment").val();
+            //console.log(prodID);
+            //console.log(comment);
+            $.ajax({
+                type: "GET",
+                url: "api/setComment.php",
+                data: {"productID": prodID, "comments": comment },
+                success: function(data,status) {
+                    //console.log(comment);
+                },
+                complete: function(data,status){
+                    getComments(prodID);
+                    $("#newComment").val("");
+                }
+            });//ajax 
+        }); //#addComment click
+        
+        function getBrand(brandID){
+            $.ajax({
+            type: "GET",
+            url: "api/getBrand.php",
+            dataType: "json",
+            data: {"brandID": brandID},
+            success: function(data,status) {
+                $("#brand").html(data.brandName);
+            }
+        });
+        }
+        function getCategory(categoryID){
+         //get category
+            $.ajax({
+                type: "GET",
+                url: "api/getCategory.php",
+                dataType: "json",
+                data: {"categoryID": categoryID},
+                success: function(data,status) {
+                    $("#category").html(data.categoryName);
+                }
+            });
+        }
+        function getComments(productID){
+         //get category
+            $.ajax({
+                type: "GET",
+                url: "api/getComments.php",
+                dataType: "json",
+                data: {"productID": productID},
+                success: function(data,status) {
+                    var comments = "";
+                    if(data == false){
+                        comments += "No comments yet! Be the first!";
+                    }
+                    else{
+                        $.each(data, function(index, item){
+                        comments +="<p>" + item.comments + "</p>";
+                    });
+                    }
+                    
+                    
+                    $("#comments").html(comments);
+                }
+            });
+        }
+    });//document.ready
+    
+</script>  
+
+<!--Modal Form-->
+<div class="modal fade" id="prodInfoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="prodNameModalLabel"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="prodInfo"></div>
+                <form>
+                    <div class='form-group'>
+                        <input id='newComment' class='form-control' type='text' placeholder='Add a Comment'>
+                    </div><div class='form-group'>
+                        <button type='button' class='btn btn-primary addComment'>Add Comment</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                    
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+

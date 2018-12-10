@@ -4,7 +4,7 @@
     
     include 'dbConnection.php';
     
-    $conn = getDatabaseConnection("ottermart");
+    $conn = getDatabaseConnection("finalproject");
     
     $username = $_POST['username'];
     $password = sha1($_POST['password']);
@@ -12,7 +12,7 @@
     //echo $password;
     
     $sql = "SELECT *
-            FROM om_admin
+            FROM f_admin
             WHERE username = :username
             AND   password = :password";
             

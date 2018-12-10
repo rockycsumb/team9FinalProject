@@ -16,7 +16,7 @@
         $newItem = array();
         $newItem['name'] = $_POST['itemName'];
         $newItem['id'] = $_POST['itemId'];
-        echo $_POST['itemPrice'];
+        //echo $_POST['itemPrice'];
         $newItem['price'] = $_POST['itemPrice'];
         $newItem['image'] = $_POST['itemImage'];
         $newItem['description'] = $_POST['itemDescription']; // Added by Rocky
@@ -48,12 +48,12 @@
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
               <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-              <a class="nav-item nav-link" href="#">Features</a>
+              <!-- <a class="nav-item nav-link" href="#">Features</a> -->
               <a class="nav-item nav-link" href="admin.php">Admin Page</a>
             </div>
           </div>
           <a class="btn btn-outline-light" href="scart.php">
-            <span class='glyphicon glyphicon-shopping-cart' aria-hidden='true'>
+            <span class="glyphicon glyphicon-shopping-cart">
             </span>Cart: <?php displayCount();?> </a>
         </div>
       </nav>
@@ -69,7 +69,7 @@
             <input type="text" class="form-control" name="product" placeholder="Enter product name" value="<?php if(isset($_GET['product'])){ echo $_GET['product'];} ?>"/>
           </div>  
           
-          <div class="col-md-2 mb-3">             
+          <div class="col-md-2 mb-2">             
             <label><strong>Category</strong></label>
             <select name="category" class="form-control">
                 <option value=""> Select One </option>
@@ -77,7 +77,7 @@
             </select>
           </div>
       
-          <div class="col-md-2 mb-3">
+          <div class="col-md-2 mb-2">
             <label><strong>Brand</strong></label>
             <select name="brand" class="form-control">
               <option value=""> Select One </option>
@@ -85,23 +85,24 @@
             </select>
           </div>
           
-          <div class="col-md-1 mb-3">
+          <div class="col-md-1 mb-1">
             <label><strong>From:</strong></label>
             <input type="text" class="form-control" name="priceFrom" value="<?php if(isset($_GET['priceFrom'])){ echo $_GET['priceFrom'];} ?>"/>
           </div>
           
-          <div class="col-md-1 mb-3">
+          <div class="col-md-1 mb-1">
             <label for=""><strong>To:</strong></label>
             <input type="text" class="form-control" name="priceTo" value="<?php if(isset($_GET['priceTo'])){ echo $_GET['priceTo'];} ?>"/>
           </div>              
           
-          <div class="col-md-2 mb-3">
+          <div class="col-md-2 mb-2">
             <label><strong>Sort By</strong></label><br>
-            <div class="form-check-inline">
-              <input type="radio" class="form-check-input" name="orderBy" value="name" <?php if(isset($_GET['orderBy']) && $_GET['orderBy'] == 'name') echo 'checked="checked"'; ?>/>Name
-            </div>
-            <div class="form-check-inline">
-              <input type="radio" class="form-check-input" name="orderBy" value="price" <?php if(isset($_GET['orderBy']) && $_GET['orderBy'] == 'price') echo 'checked="checked"'; ?>/>Price 
+            <div class="form-check form-check-inline">
+              
+              <input type="radio" class="form-check-input radio" name="orderBy" value="name" <?php if(isset($_GET['orderBy']) && $_GET['orderBy'] == 'name') echo 'checked="checked"'; ?>/>
+              <label class="custom-control-label radioLabel" for="name"><strong>Name</strong></label>
+              <input type="radio" class="form-check-input radio" name="orderBy" value="price" <?php if(isset($_GET['orderBy']) && $_GET['orderBy'] == 'price') echo 'checked="checked"'; ?>/>
+              <label class="custom-control-label radioLabel" for="price"><strong>Price</strong></label>
             </div>
           </div>
         </div>
@@ -165,9 +166,8 @@
                       </a>
                     <?php } ?>
                     
-                   
-            <!--</div>-->
           </div>
         </div>
         
-      <?php include 'inc/footer.php'; ?>
+        <?php include 'productDetail.php'; ?>
+        <?php include 'inc/footer.php'; ?>
