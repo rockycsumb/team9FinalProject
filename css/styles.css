@@ -178,6 +178,7 @@ li, ol{
 #mpRow{
     height: 90px;
     margin: 30px;
+
 }
 
 #mpRowImgDiv{
@@ -245,3 +246,10 @@ footer{
   background-color: #F2F2F2;
   padding: 10px;
 }
+
+
+#displayCart tr, td {
+    white-space: normal !important;
+}
+
+
