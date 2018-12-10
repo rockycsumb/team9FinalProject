@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 07, 2018 at 01:41 AM
+-- Generation Time: Dec 10, 2018 at 01:14 AM
 -- Server version: 5.5.57-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.22
 
@@ -21,6 +21,27 @@ SET time_zone = "+00:00";
 --
 -- Database: `finalproject`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `f_admin`
+--
+
+CREATE TABLE `f_admin` (
+  `userID` int(11) NOT NULL,
+  `firstName` varchar(25) NOT NULL,
+  `lastName` varchar(25) NOT NULL,
+  `userName` varchar(8) NOT NULL,
+  `password` varchar(40) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `f_admin`
+--
+
+INSERT INTO `f_admin` (`userID`, `firstName`, `lastName`, `userName`, `password`) VALUES
+(1, 'Corey', 'Johnson', 'admin', 'e5e9fa1ba31ecd1ae84f75caaa474f3a663f05f4');
 
 -- --------------------------------------------------------
 
@@ -69,23 +90,27 @@ INSERT INTO `f_category` (`categoryID`, `categoryName`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `f_likes`
+-- Table structure for table `f_comments`
 --
 
-CREATE TABLE `f_likes` (
+CREATE TABLE `f_comments` (
   `likesID` int(11) NOT NULL,
   `productID` int(11) NOT NULL,
   `comments` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `f_likes`
+-- Dumping data for table `f_comments`
 --
 
-INSERT INTO `f_likes` (`likesID`, `productID`, `comments`) VALUES
+INSERT INTO `f_comments` (`likesID`, `productID`, `comments`) VALUES
 (1, 31, 'This is a test'),
 (2, 51, 'This is a test'),
-(3, 51, 'This is a test 2');
+(3, 51, 'This is a test 2'),
+(4, 51, 'This is a test 3'),
+(5, 51, 'Zoom Zoom'),
+(6, 191, 'Smooth Ride'),
+(7, 231, 'Cart fits a cooler nicely!');
 
 -- --------------------------------------------------------
 
@@ -131,27 +156,6 @@ INSERT INTO `f_product` (`productID`, `productName`, `productDescription`, `prod
 (221, 'Quest Max', '40 mile range', 'https://www.evelo.com/wp-content/uploads/2017/09/quest-max-steel-gray.jpg\r\n', 61, 91, '2999.00'),
 (231, 'Compass', '50 mile range', 'https://www.evelo.com/wp-content/uploads/2017/10/compass-featured.jpg\r\n', 61, 91, '3299.00');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `f_users`
---
-
-CREATE TABLE `f_users` (
-  `userID` int(11) NOT NULL,
-  `firstName` varchar(25) NOT NULL,
-  `lastName` varchar(25) NOT NULL,
-  `userName` varchar(8) NOT NULL,
-  `password` varchar(40) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `f_users`
---
-
-INSERT INTO `f_users` (`userID`, `firstName`, `lastName`, `userName`, `password`) VALUES
-(1, 'Corey', 'Johnson', 'admin', 'e5e9fa1ba31ecd1ae84f75caaa474f3a663f05f4');
-
 --
 -- Indexes for dumped tables
 --
@@ -169,9 +173,9 @@ ALTER TABLE `f_category`
   ADD PRIMARY KEY (`categoryID`);
 
 --
--- Indexes for table `f_likes`
+-- Indexes for table `f_comments`
 --
-ALTER TABLE `f_likes`
+ALTER TABLE `f_comments`
   ADD PRIMARY KEY (`likesID`),
   ADD KEY `productID` (`productID`);
 
@@ -180,10 +184,10 @@ ALTER TABLE `f_likes`
 --
 
 --
--- AUTO_INCREMENT for table `f_likes`
+-- AUTO_INCREMENT for table `f_comments`
 --
-ALTER TABLE `f_likes`
-  MODIFY `likesID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+ALTER TABLE `f_comments`
+  MODIFY `likesID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

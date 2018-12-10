@@ -60,7 +60,7 @@
     function displayMostLikedItems(){
         global $conn;
         $sql= "SELECT productName, COUNT(likesID)
-               FROM f_product NATURAL JOIN f_likes
+               FROM f_product NATURAL JOIN f_comments
                GROUP BY productName
                ORDER BY COUNT(likesID) DESC 
                LIMIT 3";
@@ -70,7 +70,7 @@
         
         echo "<ol>";
         foreach($items as $item){
-          echo "<li>" . $item['productName'] . " Likes: " . $item['COUNT(likesID)'] . "</li>";
+          echo "<li>" . $item['productName'] . " - " . $item['COUNT(likesID)'] . "</li>";
         }
         echo "<ol>";
     }
@@ -151,7 +151,7 @@
         </div>
       </div>
       <div class="card bg-light mb-3" style="min-width:10em">
-        <div class="card-header">Most Liked Items</div>
+        <div class="card-header">Most Commented Items</div>
         <div class="card-body">
           <p class="card-title">Top 3 Items</p>
           <p class="card-text"><?= displayMostLikedItems()?></p>

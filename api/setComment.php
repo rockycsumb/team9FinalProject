@@ -2,7 +2,7 @@
     include '../inc/dbConnection.php';
     $dbConn = getDatabaseConnection("finalproject"); 
     
-    $sql = "INSERT INTO f_likes 
+    $sql = "INSERT INTO f_comments 
             (productID, comments)
             VALUES (:productID, :comments)";
     

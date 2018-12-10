@@ -43,7 +43,7 @@
               
     <!-- Cart Items -->
     <div class="container" id="prodSearch">
-      <h2>ORDER COMPLETE!</h2>
+      <h2 id="pageTitle">Order Complete!</h2>
     </div>
     
     <!-- Footer -->

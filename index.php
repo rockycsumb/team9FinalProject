@@ -53,7 +53,7 @@
             </div>
           </div>
           <a class="btn btn-outline-light" href="scart.php">
-            <span class='glyphicon glyphicon-shopping-cart' aria-hidden='true'>
+            <span class="glyphicon glyphicon-shopping-cart">
             </span>Cart: <?php displayCount();?> </a>
         </div>
       </nav>

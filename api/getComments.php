@@ -3,7 +3,7 @@
     include '../inc/dbConnection.php';
     $dbConn = getDatabaseConnection("finalproject"); 
     $sql = "SELECT * 
-            FROM f_likes 
+            FROM f_comments 
             WHERE productID = :id";
         
     $stmt = $dbConn -> prepare($sql);

@@ -3,7 +3,7 @@
     $conn = getDatabaseConnection("finalproject");
     
     $sql = "SELECT comments
-            FROM f_likes
+            FROM f_comments
             WHERE productID = :id";
     
     $stmt = $conn->prepare($sql);
