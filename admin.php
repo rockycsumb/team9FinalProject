@@ -172,6 +172,7 @@
 
     <?php 
         $records = displayAllProducts();
+        echo "<div class='table-responsive'>";
         echo "<table class='table table-striped'>";
         echo "<thead>
                 <tr>
@@ -200,6 +201,7 @@
         
         echo "</tbody>";
         echo "</table>";
+        echo "</div>"
     
     ?>
     </div>

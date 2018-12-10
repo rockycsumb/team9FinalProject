@@ -16,7 +16,7 @@
         $newItem = array();
         $newItem['name'] = $_POST['itemName'];
         $newItem['id'] = $_POST['itemId'];
-        //echo $_POST['itemPrice'];
+        echo $_POST['itemPrice'];
         $newItem['price'] = $_POST['itemPrice'];
         $newItem['image'] = $_POST['itemImage'];
         $newItem['description'] = $_POST['itemDescription']; // Added by Rocky
@@ -48,21 +48,20 @@
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
               <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-              <!-- <a class="nav-item nav-link" href="#">Features</a> -->
               <a class="nav-item nav-link" href="admin.php">Admin Page</a>
             </div>
           </div>
           <a class="btn btn-outline-light" href="scart.php">
-            <span class="glyphicon glyphicon-shopping-cart">
+           <span class="fa fa-shopping-cart" ></span>
             </span>Cart: <?php displayCount();?> </a>
         </div>
       </nav>
     </div>
     
-    <div class="container">            
+    <div class="container-fluid">            
       <form id="prodSearch">
         <h4 id="pageTitle">Product Search</h4>
-        <div class="form-row">
+        <div class="form-row col-md-12">
     
           <div class="col-md-3 mb-3">
             <label><strong>Product ID</strong></label>    
@@ -95,7 +94,7 @@
             <input type="text" class="form-control" name="priceTo" value="<?php if(isset($_GET['priceTo'])){ echo $_GET['priceTo'];} ?>"/>
           </div>              
           
-          <div class="col-md-2 mb-2">
+          <div class="col-md-3 mb-3">
             <label><strong>Sort By</strong></label><br>
             <div class="form-check form-check-inline">
               
@@ -109,9 +108,9 @@
         
         <button type="submit" class="btn btn-primary" name="searchForm">Search</button>  
       </form>
-      
+      <div class="col-md-12">
       <?php displaySearchResults()?>
-          
+      </div>
       <div id="electricDeals">
             <!--<div class="col">-->
                 <h1>Electric <span class="fa fa-bolt" ></span> Deals</h1>
