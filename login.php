@@ -14,8 +14,8 @@
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
               <a class="nav-item nav-link" href="index.php">Home </a>
-              <a class="nav-item nav-link" href="#">Features</a>
-              <a class="nav-item nav-link active" href="#">Admin Page<span class="sr-only">(current)</span></a>
+              <!-- <a class="nav-item nav-link" href="#">Features</a> -->
+              <a class="nav-item nav-link active" href="admin.php">Admin Page<span class="sr-only">(current)</span></a>
             </div>
           </div>
         </div>

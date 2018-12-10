@@ -16,7 +16,7 @@
         $newItem = array();
         $newItem['name'] = $_POST['itemName'];
         $newItem['id'] = $_POST['itemId'];
-        echo $_POST['itemPrice'];
+        //echo $_POST['itemPrice'];
         $newItem['price'] = $_POST['itemPrice'];
         $newItem['image'] = $_POST['itemImage'];
         $newItem['description'] = $_POST['itemDescription']; // Added by Rocky
@@ -48,7 +48,7 @@
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
               <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-              <a class="nav-item nav-link" href="#">Features</a>
+              <!-- <a class="nav-item nav-link" href="#">Features</a> -->
               <a class="nav-item nav-link" href="admin.php">Admin Page</a>
             </div>
           </div>
