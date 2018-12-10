@@ -73,64 +73,100 @@
         
         $stmt = $conn->prepare($sql);
         $stmt->execute($np);
-        echo "Product has been updated!";
+        $updateAlert= '<div class="alert alert-success" role="alert">Product has been updated!</div>';
         
     }
     
     if(isset($_GET['productId'])){
         $product = getProductInfo();
     }
-    
+
+    include 'inc/header.php'    ;
 ?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>CST336: Team 9 Final Project need store name Product Search</title>
-        <link href="css/styles.css" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Mukta" rel="stylesheet">
+
     </head>
     <body>
-        <h1> Team 9 Final Project need store name Product Search </h1>
-        <div id="adminLogin">
-            <a class="btn" href="admin.php">Return</a>
-            <form class="adminButtons" action="logout.php">
-                <input type="submit" id='beginning' value="Logout" />
-            </form>
+        
+    <div class="sticky-top">
+      <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+        <div class="container">
+          <a class="navbar-brand" href="index.php">E-Wheels</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-item nav-link" href="index.php">Home</a>
+              <!-- <a class="nav-item nav-link" href="#">Features</a> -->
+              <a class="nav-item nav-link" href="admin.php">Admin Page</a>
+            </div>
+          </div>
+          <!--<a class="btn btn-outline-light" href="admin.php">Return</a>&nbsp;-->
+          <a class="btn btn-outline-light" href="logout.php">Logout</a>            
         </div>
-        <div id="search">
-            <form id="searchForm">
+      </nav>
+    </div>
+    
+    <?php echo $updateAlert;?>
+    <div class="container">
+            <form id="prodSearch">
                 <input type="hidden" name="productId" value="<?=$product['productID']?>" />
-                <strong>Product name </strong><input type="text" name="productName" value="<?=$product['productName']?>"><br>
-                <strong>Description </strong><textarea name="description" cols="50" rows="4"><?=$product['productDescription']?></textarea><br>
-                <strong>Price </strong><input type="text" name="price" value="<?=$product['price']?>"><br>
-                <strong>Category</strong>
-                <select name="catId">
-                    <option>Select One</option>
-                    <?php 
-                        getCategories($product['categoryID']); 
-                    ?>
-                </select><br>
-                <strong>Brand</strong>
-                <select name="brandID">
-                    <option>Select One</option>
-                    <?php 
-                        getBrands($product['brandID']); 
-                    ?>
-                </select><br>
-                <strong>Set Image Url </strong><input type="text" name="productImage" value="<?=$product['productImage']?>"><br>
-                <input type="submit" class="btn" name="updateProduct" value="Update Product" />
-                <br><br>
+                
+                    <div class="container">
+                      <div class="row">  
+                        <div class="col-sm-3">
+                            <!-- 2 empty sections in the left -->
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <h4 id="pageTitle">Update Product Information</h4>
+                                <label><strong>Product Name</strong></label>    
+                                <input type="text" class="form-control" name="productName" placeholder="Enter product name" value="<?=$product['productName']?>"/>
+                            </div>  
+                            <div class="form-group">
+                                <label><strong>Description</strong></label>    
+                                <textarea class="form-control" name="description" cols="50" rows="4"><?=$product['productDescription']?></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label><strong>Price</strong></label>    
+                                <input type="text" class="form-control" name="price" value="<?=$product['price']?>"/>
+                            </div>
+                        
+                            <div class="form-group">
+                                <label><strong>Category</strong></label>    
+                                <select name="catId" class="form-control">
+                                    <option>Select One</option>
+                                    <?php 
+                                        getCategories($product['categoryID']); 
+                                    ?>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label><strong>Brand</strong></label>    
+                                <select name="brandID" class="form-control">
+                                    <option>Select One</option>
+                                    <?php 
+                                        getBrands($product['brandID']); 
+                                    ?>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label><strong>Set Image Url</strong></label>    
+                                <input type="text" class="form-control" name="productImage" value="<?=$product['productImage']?>"/>
+                            </div>
+                        
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-primary btn-block" name="updateProduct" value="Update" />
+                                <a class="btn btn-info btn-block" href="admin.php" >Cancel</a>
+                            </div>
+                        </div> 
+                        <div class="col-sm-3">
+                        <!-- 2 empty sections in the right -->
+                        </div>
+                      </div>
+                    </div>
+               </div>
             </form>
+        
         </div>
-        <div id="footer">
-            <hr>
-            <br /><br />
-            <p>
-                CST 336 Internet Programming 2018 &copy; Team 9 <br />
-                This website is for academic purposes only.
-                <br /><br />
-                <img src="img/logo.png" alt="CSUMB logo">
-            </p>
-        </div>
-    </body>
-</html>
+        <?php include 'inc/footer.php'; ?>
