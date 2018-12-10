@@ -180,11 +180,11 @@ function displaySummary()
         $displayTax = number_format($tax,2);
         
         
-        echo ' <h2> from total ' . $itemTotal . '</h2><br>';
-        echo ' <h2> from tax ' . $tax . '</h2><br>';
+        //echo ' <h2> from total ' . $itemTotal . '</h2><br>';
+        //echo ' <h2> from tax ' . $tax . '</h2><br>';
         
         $newTotal = $itemTotal + $tax;
-        echo ' <h2> new total ' . $newTotal . '</h2><br>';
+        //echo ' <h2> new total ' . $newTotal . '</h2><br>';
         
         
         
