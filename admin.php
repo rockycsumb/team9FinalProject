@@ -40,7 +40,7 @@
         foreach($items as $item){
           echo "<li>" . $item['productName'] . " - $" . number_format($item['price'],0,'.',',') . "</li>";
         }
-        echo "<ol>";
+        echo "</ol>";
     }
     
     function displayAveragePriceByCategory(){
@@ -54,7 +54,7 @@
         foreach($items as $item){
           echo "<li>" . $item['categoryName'] . " - $" . number_format($item['AVG(price)'],0,'.',',') . "</li>";
         }
-        echo "<ol>";
+        echo "</ol>";
     }
     
     function displayMostLikedItems(){
@@ -72,7 +72,7 @@
         foreach($items as $item){
           echo "<li>" . $item['productName'] . " - " . $item['COUNT(likesID)'] . "</li>";
         }
-        echo "<ol>";
+        echo "</ol>";
     }
     
     function displayItemCount(){
